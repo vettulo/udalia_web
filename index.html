@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Udalia — Tu negocio merece ser encontrado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Albert Sans', 'system-ui', 'sans-serif'] },
+        colors: {
+          cream: '#f3f1ec',
+          'cream-dark': '#ebe8e1',
+          ink: '#0e0e10',
+          graphite: '#1f1f22',
+          slate: '#5a5a5e',
+          pebble: '#8a8a8e',
+          ash: '#cfcdc7',
+          bone: '#e3e0d9',
+          line: '#e6e2d9',
+          accent: '#fbe46f',
+          'accent-soft': '#fff3a8',
+          dark: '#212229',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    /* Unified radius scale */
+    --r-sm: 14px;
+    --r-md: 20px;
+    --r-lg: 28px;
+    --r-xl: 36px;
+
+    /* Unified line + bg */
+    --line: #e6e2d9;
+    --line-strong: #d9d4c8;
+    --bg: #f3f1ec;
+    --bg-alt: #ebe8e1;
+    --surface: #ffffff;
+    --ink: #0e0e10;
+
+    /* Unified shadows */
+    --shadow-sm: 0 1px 2px rgba(14,14,16,0.04);
+    --shadow-md: 0 1px 2px rgba(14,14,16,0.04), 0 8px 24px -8px rgba(14,14,16,0.08);
+    --shadow-lg: 0 1px 2px rgba(14,14,16,0.04), 0 18px 40px -16px rgba(14,14,16,0.14);
+
+    /* Unified transitions */
+    --t: 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body {
+    font-family: 'Albert Sans', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+    overflow-x: clip;
+  }
+
+  img, svg { max-width: 100%; }
+
+  .grain::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* === TYPE SCALE === */
+  .display {
+    font-size: clamp(2.25rem, 4.6vw, 4.25rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.03;
+    text-wrap: balance;
+  }
+  h2.title {
+    font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+  h3.heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #5a5a5e;
+  }
+
+  /* === SURFACES — Grovia patterns ===
+     3 distinct card types, each with its own purpose:
+     - .card        → solid white card with subtle border (icon grids, content cards)
+     - .card-image  → white halo frame around an image/colorful content (success stories)
+     - .card-quiet  → cream/alt background, NO border, NO shadow (testimonials)
+     - .card-group  → larger cream container that can hold .card-image children
+  */
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: none;
+  }
+
+  .card-image {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 6px;
+  }
+  .card-image > .card-inner {
+    border-radius: calc(var(--r-lg) - 6px);
+    overflow: hidden;
+  }
+
+  .card-quiet {
+    background: var(--bg-alt);
+    border: none;
+    box-shadow: none;
+    border-radius: var(--r-lg);
+  }
+
+  .card-group {
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    padding: 1rem;
+    overflow: hidden;
+  }
+  /* FAQ — editorial grid (always-visible Q&A) */
+  .faq-grid article {
+    border-left: 2px solid var(--line);
+    padding-left: 1.35rem;
+  }
+  .pill {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 9999px;
+    box-shadow: var(--shadow-sm);
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #5a5a5e;
+  }
+
+  /* === BUTTONS — unified === */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border-radius: 9999px;
+    padding: 0.5rem 0.6rem 0.5rem 1.4rem;
+    font-size: 0.93rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--t);
+    border: 1px solid transparent;
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .btn-ghost { padding: 0.85rem 1.5rem; }
+  .btn .arrow {
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    transition: transform var(--t);
+    flex-shrink: 0;
+  }
+  .btn:hover .arrow { transform: translateX(2px); }
+
+  .btn-dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .btn-dark:hover { background: #2c2c2f; transform: translateY(-1px); }
+  .btn-dark .arrow { background: #fff; color: var(--ink); }
+
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: #fff; }
+
+  .btn-accent { background: #fbe46f; color: var(--ink); border-color: #fbe46f; }
+  .btn-accent:hover { background: #fff3a8; transform: translateY(-1px); }
+  .btn-accent .arrow { background: var(--ink); color: #fbe46f; }
+
+  .btn-light { background: #fff; color: var(--ink); border-color: var(--line); }
+  .btn-light:hover { background: var(--bg); }
+  .btn-light .arrow { background: var(--ink); color: #fff; }
+
+  .btn-sm { padding: 0.32rem 0.4rem 0.32rem 1rem; font-size: 0.85rem; gap: 0.5rem; }
+  .btn-sm .arrow { width: 26px; height: 26px; font-size: 0.78rem; }
+
+  /* === DECORATIVE BITS === */
+  .row-clean {
+    border-radius: var(--r-md);
+    transition: background 0.2s;
+  }
+  .row-clean:hover { background: rgba(0,0,0,0.025); }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  }
+
+  .icon-btn {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f1f22;
+    border-radius: 9999px;
+    transition: background 0.15s;
+  }
+  .icon-btn:hover { background: rgba(0,0,0,0.06); }
+
+  .num-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    background: var(--ink);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 9999px;
+    background: var(--ink);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .stack-bar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 2px;
+  }
+  .stack-bar > span { display: block; border-radius: 4px; }
+
+  .marquee-track {
+    display: flex;
+    gap: 4rem;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    align-items: center;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise { animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .rise-d1 { animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s var(--t), transform 0.8s var(--t);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .check {
+    width: 18px;
+    height: 18px;
+    color: #fbe46f;
+    flex-shrink: 0;
+  }
+
+  .gradient-bg {
+    background: radial-gradient(ellipse at 30% 60%, rgba(251,228,111,0.22) 0%, transparent 50%),
+                radial-gradient(ellipse at 75% 40%, rgba(234,155,171,0.28) 0%, transparent 55%),
+                #212229;
+  }
+
+  /* Section divider — subtle and unified */
+  .section-divider {
+    height: 1px;
+    background: var(--line);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body class="grain">
+
+<!-- NAV -->
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100%_-_2rem))]">
+  <div class="pill flex items-center justify-between pl-2 pr-2 py-2">
+    <a href="#" class="flex items-center gap-2.5 pl-2">
+      <span class="logo-mark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
+      </span>
+      <span class="font-semibold text-[1.05rem] tracking-tight">Udalia</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-7 text-[0.92rem] font-medium text-graphite">
+      <li><a href="#problema" class="hover:text-ink transition">Problema</a></li>
+      <li><a href="#solucion" class="hover:text-ink transition">Método</a></li>
+      <li><a href="#paquetes" class="hover:text-ink transition">Proyectos</a></li>
+    </ul>
+    <a href="#contacto" class="btn btn-dark btn-sm">
+      Agendar llamada
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="pt-36 md:pt-44 pb-20 md:pb-28 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <div class="rise">
+        <h1 class="display text-ink mt-2" style="font-weight: 500">Tienes un buen negocio. Es hora de que el mundo lo vea.</h1>
+        <p class="mt-7 text-[1.05rem] text-graphite max-w-[48ch] leading-relaxed">Ayudamos a dueños de pequeños negocios que son buenos en lo que hacen pero invisibles online — construyendo el mensaje claro, la presencia digital y los sistemas que necesitan para atraer más clientes.</p>
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          <a href="#contacto" class="btn btn-dark">Agendá una llamada gratuita<span class="arrow">→</span></a>
+          <a href="#solucion" class="btn btn-ghost">Cómo trabajamos</a>
+        </div>
+        <div class="mt-4 text-[0.85rem] text-slate">30 minutos · Sin pitch · Sin presión</div>
+      </div>
+
+      <!-- Visual mock cards -->
+      <div class="rise-d1 flex flex-col gap-5 md:gap-6 md:pt-2">
+        <!-- Customers card -->
+        <div class="card p-5 md:p-6 md:-translate-x-1 md:-rotate-[1.5deg]" style="box-shadow:var(--shadow-md);">
+          <div class="flex items-center justify-between mb-5">
+            <span class="font-semibold text-[1.05rem] tracking-tight">Clientes</span>
+            <span class="text-[0.82rem] text-slate flex items-center gap-1">Ordenar por: nuevos <span class="text-pebble">▾</span></span>
+          </div>
+
+          <div class="rounded-[var(--r-md)] px-3 py-3 mb-1 flex items-center justify-between" style="background:#fff3a8;">
+            <div class="flex items-center gap-3">
+              <div class="avatar" style="background:linear-gradient(135deg,#ea9bab 0%,#fbe46f 60%,#7cc7e8 100%);"></div>
+              <div>
+                <div class="font-semibold text-[0.95rem] leading-tight">María González</div>
+                <div class="text-[0.8rem] text-slate mt-0.5">Estudio Cumbres</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="icon-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </span>
+              <span class="icon-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+              <span class="w-px h-5 bg-bone mx-0.5"></span>
+              <span class="icon-btn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="row-clean px-3 py-3 flex items-center gap-3">
+            <div class="avatar" style="background:linear-gradient(135deg,#7cc7e8 0%,#cfcdc7 100%);"></div>
+            <div>
+              <div class="font-semibold text-[0.95rem] leading-tight">Carlos Méndez</div>
+              <div class="text-[0.8rem] text-slate mt-0.5">Tours Patagonia</div>
+            </div>
+          </div>
+
+          <div class="row-clean px-3 py-3 flex items-center gap-3">
+            <div class="avatar" style="background:linear-gradient(135deg,#fbe46f 0%,#ea9bab 100%);"></div>
+            <div>
+              <div class="font-semibold text-[0.95rem] leading-tight">Lucía Romero</div>
+              <div class="text-[0.8rem] text-slate mt-0.5">Academia Ondina</div>
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2 text-[0.86rem] text-graphite font-medium">
+            <span>Ver todos</span>
+            <span class="w-6 h-6 rounded-full border border-line flex items-center justify-center text-[0.7rem]">→</span>
+          </div>
+        </div>
+
+        <!-- Promedio diario — visible debajo del listado de clientes -->
+        <div class="card w-full p-5 md:p-6 md:rotate-[1deg]" style="box-shadow: var(--shadow-md);">
+          <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 mb-2">
+            <div class="text-[0.82rem] font-medium text-ink">Promedio diario</div>
+            <div class="text-[0.76rem]"><span style="color:#c75a6f;font-weight:600;">+30m</span> <span class="text-slate">esta semana</span></div>
+          </div>
+          <div class="text-[2.4rem] font-semibold tracking-tight leading-none mb-5">2h 20m</div>
+
+          <div class="flex items-end gap-2 h-24">
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:8px;"></span>
+              <span style="background:#ea9bab;height:14px;"></span>
+              <span style="background:#fbe46f;height:24px;"></span>
+            </div>
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:14px;"></span>
+              <span style="background:#ea9bab;height:20px;"></span>
+              <span style="background:#fbe46f;height:36px;"></span>
+            </div>
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:12px;"></span>
+              <span style="background:#ea9bab;height:18px;"></span>
+              <span style="background:#fbe46f;height:30px;"></span>
+            </div>
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:16px;"></span>
+              <span style="background:#ea9bab;height:24px;"></span>
+              <span style="background:#fbe46f;height:42px;"></span>
+            </div>
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:10px;"></span>
+              <span style="background:#ea9bab;height:16px;"></span>
+              <span style="background:#fbe46f;height:28px;"></span>
+            </div>
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:8px;"></span>
+              <span style="background:#ea9bab;height:12px;"></span>
+              <span style="background:#fbe46f;height:22px;"></span>
+            </div>
+            <div class="stack-bar">
+              <span style="background:#7cc7e8;height:6px;"></span>
+              <span style="background:#ea9bab;height:10px;"></span>
+              <span style="background:#fbe46f;height:18px;"></span>
+            </div>
+          </div>
+          <div class="flex justify-between mt-3 text-[0.7rem] text-slate font-medium">
+            <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO MARQUEE -->
+<section class="py-10 overflow-hidden border-y border-line">
+  <div class="marquee-track opacity-40 text-pebble text-[1.4rem] font-semibold tracking-tight">
+    <span>VitaHealth</span>
+    <span>BoxMedia</span>
+    <span>NovaTech</span>
+    <span>Pluto Inc</span>
+    <span>Estudio Norte</span>
+    <span>Cumbres</span>
+    <span>VitaHealth</span>
+    <span>BoxMedia</span>
+    <span>NovaTech</span>
+    <span>Pluto Inc</span>
+    <span>Estudio Norte</span>
+    <span>Cumbres</span>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="eyebrow mb-5">— El problema</div>
+      <h2 class="title">Buenos negocios pierden clientes todos los días — no porque su trabajo sea malo, sino porque nadie puede ver qué tan buenos son.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card-quiet reveal p-8">
+          <div class="text-[0.78rem] text-pebble mb-10 font-medium tracking-wide">— Externo · 01</div>
+          <h3 class="heading mb-3">Tu sitio web no explica lo que hacés</h3>
+          <p class="text-graphite text-[0.95rem] leading-relaxed">Tu página no explica en 5 segundos qué hacés ni por qué alguien debería elegirte. No tenés lista de emails. No hay automatizaciones. Los seguimientos los hacés a mano.</p>
+      </div>
+      <div class="card-quiet reveal p-8">
+          <div class="text-[0.78rem] text-pebble mb-10 font-medium tracking-wide">— Interno · 02</div>
+          <h3 class="heading mb-3">Y eso se siente</h3>
+          <p class="text-graphite text-[0.95rem] leading-relaxed">Sabés que tu trabajo es bueno. Pero cuando alguien te busca online, lo que encuentra no te representa. Ves a competidores con menos experiencia ganar clientes que vos deberías estar ganando.</p>
+      </div>
+      <div class="card-quiet reveal p-8">
+          <div class="text-[0.78rem] text-pebble mb-10 font-medium tracking-wide">— Filosófico · 03</div>
+          <h3 class="heading mb-3">No debería ser así</h3>
+          <p class="text-graphite text-[0.95rem] leading-relaxed">No debería ganar quien mejor sabe hacer marketing — debería ganar quien mejor hace el trabajo. Pero si no aparecés, no existís.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT FOR HIGH PERFORMANCE -->
+<section id="solucion" class="pt-10 md:pt-14 pb-10">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="eyebrow mb-5">— Cómo trabajamos</div>
+      <h2 class="title">Construido para alto rendimiento</h2>
+      <p class="mt-5 text-graphite text-[1rem] max-w-[58ch] mx-auto leading-relaxed">Udalia le da a tu equipo todo lo que necesita para mantenerse alineado, seguir el progreso y escalar con confianza — todo en un solo lugar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GUIA / EQUIPO -->
+<section class="py-16 md:py-20">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+      <div>
+        <div class="eyebrow mb-5">— Quiénes somos</div>
+        <h2 class="title">Entendemos lo que es tener un negocio bueno que no se ve tan bueno online.</h2>
+      </div>
+      <div class="space-y-7">
+        <div>
+          <div class="eyebrow mb-3">Empatía</div>
+          <p class="text-graphite text-[1rem] leading-relaxed">Hemos trabajado con negocios reales — blogs de viajes, operadoras de tours, educadores online, agencias — y sabemos exactamente dónde están los cuellos de botella.</p>
+        </div>
+        <div>
+          <div class="eyebrow mb-3">Autoridad</div>
+          <p class="text-graphite text-[1rem] leading-relaxed">Somos un equipo senior técnico y creativo. Ingeniería de datos y backend de nivel enterprise, combinado con estrategia de contenido, mensajería y operaciones digitales. No somos freelancers que esperan que les digan qué hacer. Llegamos, entendemos el negocio, y lo construimos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODO -->
+<section class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="gradient-bg p-8 md:p-16 text-white" style="border-radius:var(--r-xl);">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div>
+          <div class="eyebrow mb-5" style="color:#cfcdc7;">— Nuestro método</div>
+          <h2 class="title text-white">No te decimos qué hacer. Lo construimos, lo implementamos y lo hacemos funcionar.</h2>
+          <p class="mt-5 text-ash text-[1rem] max-w-[50ch] leading-relaxed">Implementamos lo que falta. Mensajería, sitio, emails, automatizaciones, contenido. Todo hecho para vos — no te dejamos con un manual de instrucciones.</p>
+          <div class="mt-8">
+            <a href="#contacto" class="btn btn-accent">Agendá una llamada<span class="arrow">→</span></a>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-5 p-6" style="border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);background:rgba(255,255,255,0.03);">
+            <span class="num-circle" style="background:#fbe46f;color:var(--ink);">01</span>
+            <div>
+              <div class="text-white font-medium text-[1.05rem] mb-1">Diagnosticamos tu mensaje, sitio y sistemas</div>
+              <div class="text-ash text-[0.9rem] leading-relaxed">Auditamos punto por punto qué funciona, qué falta y dónde se están perdiendo clientes.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-5 p-6" style="border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);background:rgba(255,255,255,0.03);">
+            <span class="num-circle" style="background:#fbe46f;color:var(--ink);">02</span>
+            <div>
+              <div class="text-white font-medium text-[1.05rem] mb-1">Construimos todo lo que falta, de punta a punta</div>
+              <div class="text-ash text-[0.9rem] leading-relaxed">Mensaje, sitio, emails, automatizaciones, contenido. Lo hacemos nosotros, no vos.</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-5 p-6" style="border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-md);background:rgba(255,255,255,0.03);">
+            <span class="num-circle" style="background:#fbe46f;color:var(--ink);">03</span>
+            <div>
+              <div class="text-white font-medium text-[1.05rem] mb-1">Nos quedamos como tu equipo digital permanente</div>
+              <div class="text-ash text-[0.9rem] leading-relaxed">Mantenimiento, optimizaciones y contenido continuo — si lo querés.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-14">
+      <div class="eyebrow mb-5">— Resultados reales</div>
+      <h2 class="title">Negocios que dejaron de ser invisibles.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="card-quiet reveal p-7">
+        <p class="text-graphite leading-relaxed text-[0.97rem]">"Pasamos de cerrar 2 clientes por mes por referidos a 8 por mes con leads del sitio. En 4 meses."</p>
+        <div class="mt-6 pt-5 border-t border-line flex items-center gap-3">
+          <div class="avatar" style="background:linear-gradient(135deg,#ea9bab,#fbe46f);"></div>
+          <div>
+            <div class="font-semibold text-[0.93rem]">María González</div>
+            <div class="text-[0.78rem] text-slate">Fundadora · Estudio Cumbres</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-quiet reveal p-7">
+        <p class="text-graphite leading-relaxed text-[0.97rem]">"Por primera vez puedo explicar lo que hago en una frase. Los clientes que llegan ahora entienden el valor antes de la primera llamada."</p>
+        <div class="mt-6 pt-5 border-t border-line flex items-center gap-3">
+          <div class="avatar" style="background:linear-gradient(135deg,#7cc7e8,#fbe46f);"></div>
+          <div>
+            <div class="font-semibold text-[0.93rem]">Carlos Méndez</div>
+            <div class="text-[0.78rem] text-slate">Director · Tours Patagonia</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-quiet reveal p-7">
+        <p class="text-graphite leading-relaxed text-[0.97rem]">"Dejé de hacer seguimientos a mano. Los emails salen solos. Tengo 10 horas más por semana para enfocarme en mis clientes."</p>
+        <div class="mt-6 pt-5 border-t border-line flex items-center gap-3">
+          <div class="avatar" style="background:linear-gradient(135deg,#ad4a5e,#ea9bab);"></div>
+          <div>
+            <div class="font-semibold text-[0.93rem]">Lucía Romero</div>
+            <div class="text-[0.78rem] text-slate">Fundadora · Academia Ondina</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS DE ÉXITO -->
+<section id="casos" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <div class="eyebrow mb-5">— Casos de éxito</div>
+      <h2 class="title">Trabajo, no promesas.</h2>
+      <p class="mt-5 text-graphite text-[1rem] max-w-[58ch] mx-auto leading-relaxed">Trabajamos con negocios reales para construir la base de su crecimiento online. Acá van algunos resultados.</p>
+    </div>
+
+    <div class="card-group">
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="card-image" style="border-style: none"><div class="card-inner">
+          <div class="relative overflow-hidden" style="height:300px;">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=900&q=80" alt="Estudio Cumbres" class="w-full h-full object-cover">
+            <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.32) 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 text-white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <span class="font-bold text-[1.5rem] tracking-tight drop-shadow-md">Estudio Cumbres</span>
+            </div>
+            <div class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">2024</div>
+          </div>
+          <div class="px-5 py-5" style="background:#fff;">
+            <h3 class="heading mb-2">Estudio Cumbres</h3>
+            <p class="text-graphite text-[0.95rem] leading-relaxed">Ayudamos a este estudio de diseño a reemplazar un sitio desactualizado por una presencia que comunica su nivel — pasaron de 2 a 8 clientes por mes en 4 meses.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-image" style="border-style: none"><div class="card-inner">
+          <div class="relative overflow-hidden" style="height:300px;">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80" alt="Tours Patagonia" class="w-full h-full object-cover">
+            <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.32) 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 text-white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              <span class="font-bold text-[1.5rem] tracking-tight drop-shadow-md">Tours Patagonia</span>
+            </div>
+            <div class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">2024</div>
+          </div>
+          <div class="px-5 py-5" style="background:#fff;">
+            <h3 class="heading mb-2">Tours Patagonia</h3>
+            <p class="text-graphite text-[0.95rem] leading-relaxed">Construimos el sistema de captación desde cero: lead magnet, secuencias de email y SEO. Hoy el 60% de sus reservas vienen de canales digitales propios.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card-image" style="border-style: none"><div class="card-inner">
+          <div class="relative overflow-hidden" style="height:300px;">
+            <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&q=80" alt="Academia Ondina" class="w-full h-full object-cover">
+            <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.32) 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 text-white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span class="font-bold text-[1.5rem] tracking-tight drop-shadow-md">Academia Ondina</span>
+            </div>
+            <div class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">2025</div>
+          </div>
+          <div class="px-5 py-5" style="background:#fff;">
+            <h3 class="heading mb-2">Academia Ondina</h3>
+            <p class="text-graphite text-[0.95rem] leading-relaxed">Lanzamos su plataforma de cursos con automatización de onboarding completo. Los seguimientos manuales desaparecieron y recuperó 10 horas semanales.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card-image" style="border-style: none"><div class="card-inner">
+          <div class="relative overflow-hidden" style="height:300px;">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80" alt="Consultora Bravo" class="w-full h-full object-cover">
+            <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.32) 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 text-white">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              <span class="font-bold text-[1.5rem] tracking-tight drop-shadow-md">Consultora Bravo</span>
+            </div>
+            <div class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">2025</div>
+          </div>
+          <div class="px-5 py-5" style="background:#fff;">
+            <h3 class="heading mb-2">Consultora Bravo</h3>
+            <p class="text-graphite text-[0.95rem] leading-relaxed">Redefinimos su mensaje de marca y reconstruimos el sitio. Por primera vez, los clientes que llegan entienden el valor antes de la primera llamada.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / PAQUETES -->
+<section id="paquetes" class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="gradient-bg p-8 md:p-16 text-white w-full" style="border-radius: var(--r-xl);">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+        <div>
+          <div class="eyebrow mb-5" style="color:#cfcdc7;">— Paquetes</div>
+          <h2 class="title text-white">Tres formas de empezar — la cotización la armamos juntos.</h2>
+          <p class="mt-5 text-ash text-[1rem] max-w-[45ch] leading-relaxed">Cada negocio está en un punto distinto. Algunos necesitan empezar por el mensaje y el sitio. Otros ya tienen eso pero les falta el motor de captación. En la llamada definimos cuál tiene más sentido para vos.</p>
+
+          <div class="mt-10 space-y-3" id="plan-tabs">
+            <button onclick="selectPlan(0)" class="plan-tab w-full text-left p-5 transition hover:bg-white/5" style="border-radius:var(--r-md);border:1px solid rgba(255,255,255,0.1);">
+              <div class="font-medium text-white text-[1.02rem]">Presencia esencial</div>
+              <div class="text-[0.83rem] text-ash mt-0.5">Para negocios sin sitio que refleje lo que hacen</div>
+            </button>
+            <button onclick="selectPlan(1)" class="plan-tab w-full text-left p-5 transition hover:bg-white/5" style="border-radius:var(--r-md);border:1px solid rgba(255,255,255,0.1);">
+              <div class="flex items-center gap-2">
+                <div class="font-medium text-white text-[1.02rem]">Motor de crecimiento</div>
+                <span class="text-[0.7rem] font-semibold text-ink px-2 py-0.5 rounded-full" style="background:#fbe46f;">Más elegido</span>
+              </div>
+              <div class="text-[0.83rem] text-ash mt-0.5">Captación + automatizaciones de email</div>
+            </button>
+            <button onclick="selectPlan(2)" class="plan-tab w-full text-left p-5 transition hover:bg-white/5" style="border-radius:var(--r-md);border:1px solid rgba(255,255,255,0.1);">
+              <div class="font-medium text-white text-[1.02rem]">Sistema completo</div>
+              <div class="text-[0.83rem] text-ash mt-0.5">Para infraestructura técnica a medida</div>
+            </button>
+          </div>
+
+          <div class="mt-10 flex items-center gap-3">
+            <div class="flex -space-x-2">
+              <div class="w-9 h-9 rounded-full border-2 border-dark" style="background:linear-gradient(135deg,#ea9bab,#fbe46f);"></div>
+              <div class="w-9 h-9 rounded-full border-2 border-dark" style="background:linear-gradient(135deg,#7cc7e8,#fbe46f);"></div>
+              <div class="w-9 h-9 rounded-full border-2 border-dark" style="background:linear-gradient(135deg,#ad4a5e,#ea9bab);"></div>
+              <div class="w-9 h-9 rounded-full border-2 border-dark" style="background:linear-gradient(135deg,#cfcdc7,#8a8a8e);"></div>
+            </div>
+            <div>
+              <div class="text-white font-medium text-[0.93rem]">4.9 / 5 calificación</div>
+              <div class="text-ash text-[0.78rem]">+40 negocios atendidos</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detail card -->
+        <div class="p-8 md:p-10" style="background:rgba(0,0,0,0.4);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r-lg);">
+
+          <!-- Plan 0 -->
+          <div class="plan-detail" id="plan-0">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🌐</span>
+              <span class="text-[1.35rem] font-medium text-white">Presencia esencial</span>
+            </div>
+            <p class="text-ash text-[0.95rem] mb-8 max-w-[34ch] leading-relaxed">Para negocios que necesitan un sitio que finalmente refleje lo que hacen. Mensaje claro, sitio que convierte.</p>
+            <a href="#contacto" class="btn btn-accent">Agendar llamada<span class="arrow">→</span></a>
+            <ul class="mt-10 space-y-4 text-white text-[0.93rem]">
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Mensaje de marca definido</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Sitio web que convierte</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Formularios y captación básica</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>SEO técnico inicial</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Entrega en 3–4 semanas</li>
+            </ul>
+          </div>
+
+          <!-- Plan 1 -->
+          <div class="plan-detail hidden" id="plan-1">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">⚡</span>
+              <span class="text-[1.35rem] font-medium text-white">Motor de crecimiento</span>
+            </div>
+            <p class="text-ash text-[0.95rem] mb-8 max-w-[34ch] leading-relaxed">Para negocios que ya tienen presencia pero los leads no llegan solos. Sumamos captación, emails y automatizaciones.</p>
+            <a href="#contacto" class="btn btn-accent">Agendar llamada<span class="arrow">→</span></a>
+            <ul class="mt-10 space-y-4 text-white text-[0.93rem]">
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Todo lo de Presencia esencial</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Lead magnet y captación activa</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Secuencias de email automatizadas</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Seguimientos automáticos</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Contenido SEO estratégico</li>
+            </ul>
+          </div>
+
+          <!-- Plan 2 -->
+          <div class="plan-detail hidden" id="plan-2">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="text-2xl">🚀</span>
+              <span class="text-[1.35rem] font-medium text-white">Sistema completo</span>
+            </div>
+            <p class="text-ash text-[0.95rem] mb-8 max-w-[34ch] leading-relaxed">Construido para negocios que necesitan infraestructura técnica a medida y un equipo digital permanente.</p>
+            <a href="#contacto" class="btn btn-accent">Agendar llamada<span class="arrow">→</span></a>
+            <ul class="mt-10 space-y-4 text-white text-[0.93rem]">
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Todo lo del Motor de crecimiento</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Dashboards y automatizaciones avanzadas</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Plataforma de cursos o membresías</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Contenido estratégico mensual</li>
+              <li class="flex items-center gap-3"><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>Equipo digital permanente</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="text-center mb-14 md:mb-16 max-w-3xl mx-auto">
+      <div class="eyebrow mb-5">— Preguntas frecuentes</div>
+      <h2 class="title">Lo que probablemente te estés preguntando</h2>
+    </div>
+
+    <div class="faq-grid grid md:grid-cols-2 gap-x-14 gap-y-12 md:gap-y-14">
+      <article class="space-y-3">
+        <h3 class="font-semibold text-[1.05rem] text-ink leading-snug">¿Cuánto cuesta?</h3>
+        <p class="text-graphite leading-relaxed text-[0.97rem]">Depende del paquete y del alcance. Los proyectos arrancan en presupuestos accesibles para pequeños negocios y escalan según la complejidad técnica. En la llamada gratuita te damos un número concreto — sin sorpresas después.</p>
+      </article>
+      <article class="space-y-3">
+        <h3 class="font-semibold text-[1.05rem] text-ink leading-snug">¿Cuánto tarda?</h3>
+        <p class="text-graphite leading-relaxed text-[0.97rem]">Entre 3 y 10 semanas según el paquete. Presencia esencial sale en 3–4 semanas. Sistema completo puede tomar 8–10 semanas.</p>
+      </article>
+      <article class="space-y-3">
+        <h3 class="font-semibold text-[1.05rem] text-ink leading-snug">¿Esto es para mí si recién estoy arrancando?</h3>
+        <p class="text-graphite leading-relaxed text-[0.97rem]">Probablemente no. Trabajamos mejor con negocios que ya tienen clientes y trayectoria, y que sienten que su presencia online no está a la altura.</p>
+      </article>
+      <article class="space-y-3">
+        <h3 class="font-semibold text-[1.05rem] text-ink leading-snug">¿Qué pasa si ya tengo sitio?</h3>
+        <p class="text-graphite leading-relaxed text-[0.97rem]">Lo evaluamos. A veces conviene rehacerlo, a veces refactorizar. Te decimos honestamente qué tiene sentido — incluso si la respuesta es "no toques nada todavía".</p>
+      </article>
+      <article class="space-y-3">
+        <h3 class="font-semibold text-[1.05rem] text-ink leading-snug">¿Qué pasa después del proyecto?</h3>
+        <p class="text-graphite leading-relaxed text-[0.97rem]">Ofrecemos planes mensuales para mantener el sistema vivo: contenido, optimizaciones, mantenimiento técnico. Pero no es obligatorio.</p>
+      </article>
+      <article class="space-y-3">
+        <h3 class="font-semibold text-[1.05rem] text-ink leading-snug">¿Trabajan fuera de Argentina?</h3>
+        <p class="text-graphite leading-relaxed text-[0.97rem]">Sí. Trabajamos en español e inglés con clientes en Latinoamérica, Estados Unidos y Europa. Todo es remoto.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contacto" class="py-20 md:py-32">
+  <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+    <h2 class="display">¿Listo para dejar de perder clientes que merecías?</h2>
+    <p class="mt-7 text-graphite text-[1.05rem] max-w-[55ch] mx-auto leading-relaxed">30 minutos. Miramos tu negocio juntos y te decimos honestamente qué lo está frenando — trabajes con nosotros o no. Sin pitch, sin presión.</p>
+    <div class="mt-9 flex flex-wrap justify-center items-center gap-3">
+      <a href="#" class="btn btn-dark">Agendá tu llamada gratuita<span class="arrow">→</span></a>
+      <a href="#" class="btn btn-ghost">Auditoría gratuita del sitio</a>
+    </div>
+    <div class="mt-5 text-[0.85rem] text-slate">Sin pitch. Sin presión. Sin compromiso.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-ash py-16 mt-10">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="grid md:grid-cols-4 gap-10 mb-12">
+      <div class="md:col-span-2">
+        <a href="#" class="flex items-center gap-2.5">
+          <span class="logo-mark">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
+          </span>
+          <span class="text-white font-semibold text-[1.05rem]">Udalia</span>
+        </a>
+        <p class="mt-4 text-ash max-w-[35ch] text-[0.93rem] leading-relaxed">Estudio digital que construye la presencia que tu negocio merece.</p>
+      </div>
+      <div>
+        <h5 class="text-white text-[0.78rem] tracking-[0.15em] uppercase font-medium mb-4">Estudio</h5>
+        <ul class="space-y-2.5 text-[0.9rem]">
+          <li><a href="#problema" class="hover:text-white transition">El problema</a></li>
+          <li><a href="#solucion" class="hover:text-white transition">Método</a></li>
+          <li><a href="#paquetes" class="hover:text-white transition">Proyectos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="text-white text-[0.78rem] tracking-[0.15em] uppercase font-medium mb-4">Contacto</h5>
+        <ul class="space-y-2.5 text-[0.9rem]">
+          <li><a href="mailto:hola@udalia.com" class="hover:text-white transition">hola@udalia.com</a></li>
+          <li><a href="#contacto" class="hover:text-white transition">Agendar llamada</a></li>
+          <li><a href="#contacto" class="hover:text-white transition">Auditoría gratuita</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-wrap items-center justify-between gap-4 text-[0.8rem] text-pebble">
+      <span>© 2026 Udalia · Todos los derechos reservados</span>
+      <span>Hecho con cuidado en Argentina</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function selectPlan(index) {
+    document.querySelectorAll('.plan-tab').forEach((btn, i) => {
+      btn.style.background = i === index ? 'rgba(255,255,255,0.08)' : '';
+      btn.style.borderColor = i === index ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.1)';
+    });
+    document.querySelectorAll('.plan-detail').forEach((el, i) => {
+      el.classList.toggle('hidden', i !== index);
+    });
+  }
+  selectPlan(1);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
