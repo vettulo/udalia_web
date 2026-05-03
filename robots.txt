@@ -1,0 +1,5 @@
+# Ajusta el host del Sitemap si usás otro dominio público (ver comentarios en index.html HEAD)
+User-agent: *
+Allow: /
+
+Sitemap: https://udalia.com/sitemap.xml
