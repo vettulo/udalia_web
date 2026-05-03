@@ -347,7 +347,7 @@
 <!-- NAV -->
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100%_-_2rem))]">
   <div class="pill flex items-center justify-between pl-2 pr-2 py-2">
-    <a href="#" class="flex items-center gap-2.5 pl-2">
+    <a href="index.html" class="flex items-center gap-2.5 pl-2">
       <span class="logo-mark">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
       </span>
@@ -357,6 +357,7 @@
       <li><a href="#problema" class="hover:text-ink transition">Problema</a></li>
       <li><a href="#solucion" class="hover:text-ink transition">Método</a></li>
       <li><a href="#paquetes" class="hover:text-ink transition">Proyectos</a></li>
+      <li><a href="caso-inmobiliaria-florida.html" class="hover:text-ink transition">Historia</a></li>
     </ul>
     <a href="#contacto" class="btn btn-dark btn-sm">
       Agendar llamada
@@ -376,7 +377,6 @@
           <a href="#contacto" class="btn btn-dark">Agendá una llamada gratuita<span class="arrow">→</span></a>
           <a href="#solucion" class="btn btn-ghost">Cómo trabajamos</a>
         </div>
-        <div class="mt-4 text-[0.85rem] text-slate">30 minutos · Sin pitch · Sin presión</div>
       </div>
 
       <!-- Visual mock cards -->
@@ -568,7 +568,7 @@
         </div>
         <div>
           <div class="eyebrow mb-3">Autoridad</div>
-          <p class="text-graphite text-[1rem] leading-relaxed">Somos un equipo senior técnico y creativo. Ingeniería de datos y backend de nivel enterprise, combinado con estrategia de contenido, mensajería y operaciones digitales. No somos freelancers que esperan que les digan qué hacer. Llegamos, entendemos el negocio, y lo construimos.</p>
+          <p class="text-graphite text-[1rem] leading-relaxed">Somos un equipo senior técnico y creativo. Nuestro background en ingeniería, combinado con estrategia de contenido, mensajería y operaciones digitales. No somos freelancers que esperan que les digan qué hacer. Llegamos, entendemos el negocio, y lo construimos.</p>
         </div>
       </div>
     </div>
@@ -724,22 +724,25 @@
         </div>
       </div>
 
-      <!-- Card 4 -->
-      <div class="card-image" style="border-style: none"><div class="card-inner">
+      <!-- Card 4: caso real (historia) -->
+      <div class="card-image" style="border-style: none">
+        <a href="caso-inmobiliaria-florida.html" class="card-inner block cursor-pointer text-inherit no-underline group hover:opacity-[0.97] transition-opacity focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 ring-offset-[var(--bg)] rounded-[inherit]">
           <div class="relative overflow-hidden" style="height:300px;">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=900&q=80" alt="Consultora Bravo" class="w-full h-full object-cover">
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.32) 100%);"></div>
-            <div class="absolute inset-0 flex items-center justify-center gap-3 text-white">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-              <span class="font-bold text-[1.5rem] tracking-tight drop-shadow-md">Consultora Bravo</span>
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=900&q=80" alt="Proyecto residencial en Florida" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]">
+            <div class="absolute inset-0" style="background:linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.36) 100%);"></div>
+            <div class="absolute inset-0 flex items-center justify-center gap-3 text-white px-4 text-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" class="flex-shrink-0"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <span class="font-bold text-[1.35rem] md:text-[1.5rem] tracking-tight drop-shadow-md">Real estate · Florida</span>
             </div>
-            <div class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">2025</div>
+            <div class="absolute bottom-3 left-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">Historia</div>
+            <div class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full" style="background:rgba(20,20,20,0.55);backdrop-filter:blur(8px);">2026</div>
           </div>
           <div class="px-5 py-5" style="background:#fff;">
-            <h3 class="heading mb-2">Consultora Bravo</h3>
-            <p class="text-graphite text-[0.95rem] leading-relaxed">Redefinimos su mensaje de marca y reconstruimos el sitio. Por primera vez, los clientes que llegan entienden el valor antes de la primera llamada.</p>
+            <h3 class="heading mb-2 group-hover:underline underline-offset-4 decoration-1">Cómo un desarrollo en Florida dejó de invertir a ciegas y empezó a saber exactamente qué le funciona</h3>
+            <p class="text-graphite text-[0.95rem] leading-relaxed">Desarrollo residencial en los Cayos: Meta + Google ordenados, blogs y reportes relevantes. Más de 750 leads proyectados en 6 meses con el mismo presupuesto.</p>
+            <p class="mt-3 text-[0.86rem] font-medium text-ink">Leer caso completo →</p>
           </div>
-        </div>
+        </a>
       </div>
 
     </div>
@@ -890,7 +893,7 @@
 <section id="contacto" class="py-20 md:py-32">
   <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
     <h2 class="display">¿Listo para dejar de perder clientes que merecías?</h2>
-    <p class="mt-7 text-graphite text-[1.05rem] max-w-[55ch] mx-auto leading-relaxed">30 minutos. Miramos tu negocio juntos y te decimos honestamente qué lo está frenando, trabajes con nosotros o no. Sin pitch, sin presión.</p>
+    <p class="mt-7 text-graphite text-[1.05rem] max-w-[55ch] mx-auto leading-relaxed">30 minutos. Miramos tu negocio juntos y te decimos honestamente qué lo está frenando, trabajes con nosotros o no.</p>
     <div class="mt-9 flex flex-wrap justify-center items-center gap-3">
       <a href="#" class="btn btn-dark">Agendá tu llamada gratuita<span class="arrow">→</span></a>
       <a href="#" class="btn btn-ghost">Auditoría gratuita del sitio</a>
@@ -904,7 +907,7 @@
   <div class="max-w-7xl mx-auto px-6 md:px-10">
     <div class="grid md:grid-cols-4 gap-10 mb-12">
       <div class="md:col-span-2">
-        <a href="#" class="flex items-center gap-2.5">
+        <a href="index.html" class="flex items-center gap-2.5">
           <span class="logo-mark">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
           </span>

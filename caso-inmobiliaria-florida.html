@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo un desarrollo en Florida dejó de invertir a ciegas · Udalia</title>
+<meta name="description" content="Caso real: desarrollo en Florida, Meta + Google, SEO y reportes. De invertir a ciegas a saber qué funciona y mejor CPL en pago.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Albert Sans', 'system-ui', 'sans-serif'] },
+        colors: {
+          ink: '#0e0e10', graphite: '#1f1f22', slate: '#5a5a5e', pebble: '#8a8a8e',
+          ash: '#cfcdc7', line: '#e6e2d9', dark: '#212229', accent: '#fbe46f',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --r-md: 20px; --r-lg: 28px; --r-xl: 36px;
+    --line: #e6e2d9; --bg: #f3f1ec; --bg-alt: #ebe8e1; --ink: #0e0e10;
+    --shadow-sm: 0 1px 2px rgba(14,14,16,0.04);
+    --shadow-md: 0 1px 2px rgba(14,14,16,0.04), 0 8px 24px -8px rgba(14,14,16,0.08);
+  }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { font-family: 'Albert Sans', system-ui, sans-serif; background: var(--bg); color: var(--ink);
+    -webkit-font-smoothing: antialiased; letter-spacing: -0.01em; overflow-x: clip; }
+  img, svg { max-width: 100%; }
+  .grain::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .title-article { font-size: clamp(1.85rem, 4vw, 2.65rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; text-wrap: balance; }
+  .eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: #5a5a5e; }
+  .pill { background: #fff; border: 1px solid var(--line); border-radius: 9999px; box-shadow: var(--shadow-sm); }
+  .logo-mark {
+    width: 34px; height: 34px; border-radius: 9999px; background: var(--ink); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .btn { display: inline-flex; align-items: center; gap: 0.55rem; border-radius: 9999px; padding: 0.5rem 0.6rem 0.5rem 1.4rem;
+    font-size: 0.93rem; font-weight: 500; text-decoration: none; transition: all 0.25s ease; border: 1px solid transparent; line-height: 1; white-space: nowrap; }
+  .btn-dark { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .btn-dark:hover { background: #2c2c2f; transform: translateY(-1px); }
+  .btn .arrow { width: 30px; height: 30px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; background: #fff; color: var(--ink); flex-shrink: 0; transition: transform 0.25s ease; }
+  .btn:hover .arrow { transform: translateX(2px); }
+  .btn-sm { padding: 0.32rem 0.4rem 0.32rem 1rem; font-size: 0.85rem; gap: 0.5rem; }
+  .btn-sm .arrow { width: 26px; height: 26px; font-size: 0.78rem; }
+  .bar-track { height: 12px; border-radius: 9999px; background: var(--bg-alt); overflow: hidden; display: flex; }
+  .bar-fill { height: 100%; border-radius: 9999px; background: linear-gradient(90deg, #7cc7e8, #fbe46f); }
+  .bar-fill-accent { background: linear-gradient(90deg, #ea9bab, #fbe46f); }
+</style>
+</head>
+<body class="grain">
+
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100%_-_2rem))]">
+  <div class="pill flex items-center justify-between pl-2 pr-2 py-2">
+    <a href="index.html" class="flex items-center gap-2.5 pl-2">
+      <span class="logo-mark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
+      </span>
+      <span class="font-semibold text-[1.05rem] tracking-tight text-ink">Udalia</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-6 text-[0.92rem] font-medium text-graphite">
+      <li><a href="index.html#problema" class="hover:text-ink transition">Problema</a></li>
+      <li><a href="index.html#solucion" class="hover:text-ink transition">Método</a></li>
+      <li><a href="index.html#paquetes" class="hover:text-ink transition">Proyectos</a></li>
+      <li><a href="caso-inmobiliaria-florida.html" class="text-ink font-medium">Historia</a></li>
+    </ul>
+    <a href="index.html#contacto" class="btn btn-dark btn-sm">Agendar llamada<span class="arrow">→</span></a>
+  </div>
+</nav>
+
+<article class="relative z-[2] pt-36 md:pt-44 pb-20 md:pb-28">
+  <div class="max-w-3xl mx-auto px-6 md:px-10">
+    <p class="eyebrow mb-4">Caso de éxito · Real estate en Estados Unidos · 6 meses de gestión</p>
+    <h1 class="title-article text-ink">Cómo un desarrollo en Florida dejó de invertir a ciegas y empezó a saber exactamente qué le funciona</h1>
+
+    <div class="mt-10 space-y-6 text-[1.05rem] text-graphite leading-relaxed">
+      <p>Una desarrolladora inmobiliaria con un proyecto residencial en los Cayos de Florida tenía un problema que conocemos bien: estaba invirtiendo miles de dólares por mes en publicidad digital y no sabía con certeza cuánto le costaba conseguir un lead calificado.</p>
+      <p>El equipo interno hacía lo que podía. Pero entre Meta Ads, Google Ads, el blog, los emails y las actualizaciones del sitio, las decisiones se tomaban a ojo. Algunos meses los números cerraban. Otros, no.</p>
+      <p>Cuando empezamos a trabajar juntos, lo primero fue ordenar la casa.</p>
+    </div>
+
+    <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">El punto de partida</h2>
+    <div class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed">
+      <p>El benchmark de la industria de real estate en Estados Unidos para Meta Ads marca un costo por lead promedio de USD 12,43. Es la vara con la que se mide cualquier campaña en este rubro.</p>
+      <p>La cuenta venía operando cerca de ese número, lo cual no es malo, pero tampoco deja margen para escalar con tranquilidad. Cuando el CPL está al filo del benchmark, cualquier mes flojo pone en duda toda la estrategia.</p>
+    </div>
+
+    <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">Lo que hicimos</h2>
+    <p class="mt-5 text-[1.05rem] text-graphite leading-relaxed">No reinventamos nada. Ejecutamos lo que ya sabíamos que funcionaba, pero de forma sistemática:</p>
+
+    <div class="mt-8 rounded-[var(--r-lg)] border border-line bg-white overflow-hidden shadow-[var(--shadow-sm)] divide-y divide-[#e6e2d9]">
+      <div class="px-5 py-4 flex gap-4 items-start">
+        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#fff3a8] text-ink text-sm font-semibold flex items-center justify-center">1</span>
+        <div>
+          <div class="font-semibold text-ink">Auditoría</div>
+          <p class="text-[0.95rem] text-slate mt-1 leading-relaxed">Limpieza de campañas, audiencias y creativos.</p>
+        </div>
+      </div>
+      <div class="px-5 py-4 flex gap-4 items-start">
+        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#fff3a8] text-ink text-sm font-semibold flex items-center justify-center">2</span>
+        <div>
+          <div class="font-semibold text-ink">Estructura</div>
+          <p class="text-[0.95rem] text-slate mt-1 leading-relaxed">Meta Ads + Google Ads coordinados, no compitiendo entre sí.</p>
+        </div>
+      </div>
+      <div class="px-5 py-4 flex gap-4 items-start">
+        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#fff3a8] text-ink text-sm font-semibold flex items-center justify-center">3</span>
+        <div>
+          <div class="font-semibold text-ink">Contenido SEO</div>
+          <p class="text-[0.95rem] text-slate mt-1 leading-relaxed">Blogs mensuales + emails que sostienen el orgánico.</p>
+        </div>
+      </div>
+      <div class="px-5 py-4 flex gap-4 items-start">
+        <span class="flex-shrink-0 w-8 h-8 rounded-full bg-[#fff3a8] text-ink text-sm font-semibold flex items-center justify-center">4</span>
+        <div>
+          <div class="font-semibold text-ink">Reportes</div>
+          <p class="text-[0.95rem] text-slate mt-1 leading-relaxed">Métricas semanales relevantes, no planillas.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-8 text-[1.05rem] text-graphite leading-relaxed">Cada pieza alimentó a la siguiente. Los blogs mejoraron el SEO, el SEO bajó la presión sobre el pago, y la inversión en pago se concentró donde realmente convertía.</p>
+
+    <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">Los números a 6 meses</h2>
+    <div class="mt-6 overflow-x-auto rounded-[var(--r-lg)] border border-line bg-white">
+      <table class="w-full text-left text-[0.92rem]">
+        <thead>
+          <tr class="border-b border-line bg-[var(--bg-alt)]">
+            <th class="px-4 py-3 font-semibold text-ink">Métrica</th>
+            <th class="px-4 py-3 font-semibold text-ink">Antes (estimado)</th>
+            <th class="px-4 py-3 font-semibold text-ink">Resultado sostenido</th>
+          </tr>
+        </thead>
+        <tbody class="text-graphite">
+          <tr class="border-b border-line"><td class="px-4 py-3">Inversión mensual total</td><td class="px-4 py-3">~USD 1.300</td><td class="px-4 py-3 font-medium text-ink">USD 1.241 (96%)</td></tr>
+          <tr class="border-b border-line"><td class="px-4 py-3">Leads por mes</td><td class="px-4 py-3">~80</td><td class="px-4 py-3 font-medium text-ink">125 a 132</td></tr>
+          <tr class="border-b border-line"><td class="px-4 py-3">Cumplimiento de meta</td><td class="px-4 py-3">80%</td><td class="px-4 py-3 font-medium text-ink">125%</td></tr>
+          <tr class="border-b border-line"><td class="px-4 py-3">Costo por lead (Meta)</td><td class="px-4 py-3">~USD 12</td><td class="px-4 py-3 font-medium text-ink">USD 3,68</td></tr>
+          <tr><td class="px-4 py-3">CTR promedio</td><td class="px-4 py-3">2,1%</td><td class="px-4 py-3 font-medium text-ink">3,84%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-8 text-[1.05rem] text-graphite leading-relaxed">Proyectado a 6 meses, eso significa pasar de unos 480 leads a más de 750 leads con el mismo presupuesto. Y un ahorro acumulado en costo por adquisición de aproximadamente USD 26.000 comparado contra el benchmark del rubro.</p>
+
+    <div class="mt-10 rounded-[var(--r-lg)] border border-line p-6 md:p-8 bg-[var(--bg-alt)]">
+      <p class="eyebrow mb-6">Leads generados · 6 meses</p>
+      <div class="space-y-5">
+        <div>
+          <div class="flex justify-between text-sm font-medium text-ink mb-2"><span>Antes</span><span class="text-slate">~480</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:55%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm font-medium text-ink mb-2"><span>Ahora</span><span class="text-slate">750+</span></div>
+          <div class="bar-track"><div class="bar-fill bar-fill-accent" style="width:88%"></div></div>
+        </div>
+      </div>
+      <p class="eyebrow mt-10 mb-4">CPL promedio (Meta)</p>
+      <div class="space-y-4">
+        <div>
+          <div class="flex justify-between text-sm mb-2"><span class="text-graphite">Benchmark</span><span class="font-semibold text-ink">USD 12,43</span></div>
+          <div class="bar-track"><div class="bar-fill opacity-50" style="width:100%; background:#cfcdc7;"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-sm mb-2"><span class="text-graphite">Resultado</span><span class="font-semibold text-ink">USD 3,68</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:30%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">Lo que cambió de fondo</h2>
+    <div class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed">
+      <p>La diferencia no fue una campaña ganadora. Fue dejar de tratar el marketing digital como una serie de tareas sueltas y empezar a tratarlo como un sistema.</p>
+      <p>El cliente pasó de revisar dashboards para entender qué estaba pasando a recibir un reporte mensual con tres cosas: qué funcionó, qué ajustamos, qué viene. Las decisiones dejaron de depender de quién tuviera tiempo esa semana.</p>
+    </div>
+
+    <div class="mt-16 p-8 md:p-10 rounded-[var(--r-xl)] border border-line bg-white" style="box-shadow:var(--shadow-md)">
+      <h2 class="text-xl md:text-2xl font-bold text-ink tracking-tight">¿Tu proyecto necesita el mismo tipo de orden?</h2>
+      <p class="mt-5 text-[1.05rem] text-graphite leading-relaxed">En <strong class="text-ink font-semibold">Udalia</strong> acompañamos a equipos que invierten en Meta y Google y ya no quieren operar a ciegas: mensaje claro, pago y orgánico que no se pisan, y reportes que terminan en decisiones. Si no estás seguro de si tu costo por lead es razonable o si tu marketing se convirtió en una lista infinita de tareas, hablemos.</p>
+      <div class="mt-8 flex flex-wrap items-center gap-3">
+        <a href="index.html#contacto" class="btn btn-dark">Agendá una llamada gratuita<span class="arrow">→</span></a>
+        <a href="index.html" class="text-[0.93rem] font-medium text-graphite hover:text-ink transition">Volver al inicio</a>
+      </div>
+      <p class="mt-4 text-[0.85rem] text-slate">30 minutos, sin pitch ni presión. Te decimos con honestidad si tiene sentido seguir en conjunto.</p>
+    </div>
+  </div>
+</article>
+
+<footer class="relative z-[2] bg-dark text-ash py-12 mt-4">
+  <div class="max-w-3xl mx-auto px-6 md:px-10 flex flex-wrap items-center justify-between gap-4 text-[0.85rem]">
+    <a href="index.html" class="flex items-center gap-2 text-white font-semibold hover:opacity-90 transition"><span class="logo-mark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg></span> Udalia</a>
+    <span class="text-pebble">© 2026 · Caso anonimizado</span>
+  </div>
+</footer>
+
+</body>
+</html>
