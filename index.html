@@ -26,6 +26,7 @@
 <meta name="twitter:image" content="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
 
 <title>Udalia · Tu negocio merece ser encontrado</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
 {"@type":"Organization","@id":"https://udalia.com/#organization","name":"Udalia","url":"https://udalia.com/","email":"hola@udalia.com","description":"Estudio digital que construye la presencia que tu negocio merece."},
@@ -326,6 +327,23 @@
     justify-content: center;
     flex-shrink: 0;
   }
+  .logo-u {
+    font-size: 0.98rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+
+  .problem-num {
+    font-size: clamp(3.5rem, 7vw, 5rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    color: var(--ink);
+    opacity: 0.10;
+    font-variant-numeric: tabular-nums;
+    user-select: none;
+  }
 
   .stack-bar {
     flex: 1;
@@ -391,9 +409,7 @@
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100%_-_2rem))]">
   <div class="pill flex items-center justify-between pl-2 pr-2 py-2">
     <a href="index.html" class="flex items-center gap-2.5 pl-2">
-      <span class="logo-mark">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
-      </span>
+      <span class="logo-mark" aria-hidden="true"><span class="logo-u">U</span></span>
       <span class="font-semibold text-[1.05rem] tracking-tight">Udalia</span>
     </a>
     <ul class="hidden md:flex items-center gap-5 text-[0.88rem] font-medium text-graphite">
@@ -409,7 +425,7 @@
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="pt-36 md:pt-44 pb-20 md:pb-28 relative overflow-hidden">
+<section id="hero" class="pt-24 md:pt-36 pb-20 md:pb-28 relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 md:px-10">
     <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
       <div class="rise">
@@ -534,17 +550,17 @@
 
     <div class="grid md:grid-cols-3 gap-4">
       <div class="card-quiet reveal p-8">
-          <div class="text-[0.78rem] text-pebble mb-10 font-medium tracking-wide">Externo · 01</div>
+          <div class="problem-num mb-5" aria-hidden="true">1</div>
           <h3 class="heading mb-3">Tu sitio web no explica lo que hacés</h3>
           <p class="text-graphite text-[0.95rem] leading-relaxed">Tu página no explica en 5 segundos qué hacés ni por qué alguien debería elegirte. No tenés lista de emails. No hay automatizaciones. Los seguimientos los hacés a mano.</p>
       </div>
       <div class="card-quiet reveal p-8">
-          <div class="text-[0.78rem] text-pebble mb-10 font-medium tracking-wide">Interno · 02</div>
+          <div class="problem-num mb-5" aria-hidden="true">2</div>
           <h3 class="heading mb-3">Y eso se siente</h3>
           <p class="text-graphite text-[0.95rem] leading-relaxed">Sabés que tu trabajo es bueno. Pero cuando alguien te busca online, lo que encuentra no te representa. Ves a competidores con menos experiencia ganar clientes que vos deberías estar ganando.</p>
       </div>
       <div class="card-quiet reveal p-8">
-          <div class="text-[0.78rem] text-pebble mb-10 font-medium tracking-wide">Filosófico · 03</div>
+          <div class="problem-num mb-5" aria-hidden="true">3</div>
           <h3 class="heading mb-3">No debería ser así</h3>
           <p class="text-graphite text-[0.95rem] leading-relaxed">No debería ganar quien mejor sabe hacer marketing: debería ganar quien mejor hace el trabajo. Pero si no aparecés, no existís.</p>
       </div>
@@ -620,49 +636,6 @@
               <div class="text-white font-medium text-[1.05rem] mb-1">Nos quedamos como tu equipo digital permanente</div>
               <div class="text-ash text-[0.9rem] leading-relaxed">Mantenimiento, optimizaciones y contenido continuo, si lo querés.</div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIOS -->
-<section id="testimonios" class="py-20 md:py-28">
-  <div class="max-w-7xl mx-auto px-6 md:px-10">
-    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-14">
-      <div class="eyebrow mb-5">Resultados reales</div>
-      <h2 class="title">Negocios que dejaron de ser invisibles.</h2>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="card-quiet reveal p-7">
-        <p class="text-graphite leading-relaxed text-[0.97rem]">"Pasamos de cerrar 2 clientes por mes por referidos a 8 por mes con leads del sitio. En 4 meses."</p>
-        <div class="mt-6 pt-5 border-t border-line flex items-center gap-3">
-          <div class="avatar" style="background:linear-gradient(135deg,#ea9bab,#fbe46f);"></div>
-          <div>
-            <div class="font-semibold text-[0.93rem]">María González</div>
-            <div class="text-[0.78rem] text-slate">Fundadora · Estudio Cumbres</div>
-          </div>
-        </div>
-      </div>
-      <div class="card-quiet reveal p-7">
-        <p class="text-graphite leading-relaxed text-[0.97rem]">"Por primera vez puedo explicar lo que hago en una frase. Los clientes que llegan ahora entienden el valor antes de la primera llamada."</p>
-        <div class="mt-6 pt-5 border-t border-line flex items-center gap-3">
-          <div class="avatar" style="background:linear-gradient(135deg,#7cc7e8,#fbe46f);"></div>
-          <div>
-            <div class="font-semibold text-[0.93rem]">Carlos Méndez</div>
-            <div class="text-[0.78rem] text-slate">Director · Tours Patagonia</div>
-          </div>
-        </div>
-      </div>
-      <div class="card-quiet reveal p-7">
-        <p class="text-graphite leading-relaxed text-[0.97rem]">"Dejé de hacer seguimientos a mano. Los emails salen solos. Tengo 10 horas más por semana para enfocarme en mis clientes."</p>
-        <div class="mt-6 pt-5 border-t border-line flex items-center gap-3">
-          <div class="avatar" style="background:linear-gradient(135deg,#ad4a5e,#ea9bab);"></div>
-          <div>
-            <div class="font-semibold text-[0.93rem]">Lucía Romero</div>
-            <div class="text-[0.78rem] text-slate">Fundadora · Academia Ondina</div>
           </div>
         </div>
       </div>
@@ -898,7 +871,6 @@
       <a href="#" class="btn btn-dark">Agendá tu llamada gratuita<span class="arrow">→</span></a>
       <a href="#" class="btn btn-ghost">Auditoría gratuita del sitio</a>
     </div>
-    <div class="mt-5 text-[0.85rem] text-slate">Sin pitch. Sin presión. Sin compromiso.</div>
   </div>
 </section>
 
@@ -908,9 +880,7 @@
     <div class="grid md:grid-cols-4 gap-10 mb-12">
       <div class="md:col-span-2">
         <a href="index.html" class="flex items-center gap-2.5">
-          <span class="logo-mark">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14h7l-1 7 9-11h-7l1-7z" fill="currentColor"/></svg>
-          </span>
+          <span class="logo-mark" aria-hidden="true"><span class="logo-u">U</span></span>
           <span class="text-white font-semibold text-[1.05rem]">Udalia</span>
         </a>
         <p class="mt-4 text-ash max-w-[35ch] text-[0.93rem] leading-relaxed">Estudio digital que construye la presencia que tu negocio merece.</p>
