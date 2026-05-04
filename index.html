@@ -262,6 +262,21 @@
   }
   .row-clean:hover { background: rgba(0,0,0,0.025); }
 
+  .channel-pick {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    border-radius: var(--r-md);
+    transition: background 0.2s;
+    width: 100%;
+  }
+  .channel-pick.is-active { background: #fff3a8; }
+  .channel-pick:not(.is-active):hover { background: rgba(0,0,0,0.035); }
+  .channel-pick:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+
   .avatar {
     width: 38px;
     height: 38px;
@@ -320,7 +335,7 @@
     height: 100%;
     gap: 2px;
   }
-  .stack-bar > span { display: block; border-radius: 4px; }
+  .stack-bar > span { display: block; border-radius: 4px; width: 100%; }
 
   .marquee-track {
     display: flex;
@@ -415,46 +430,48 @@
             <span class="text-[0.82rem] text-slate flex items-center gap-1">Últimos 7 días <span class="text-pebble">▾</span></span>
           </div>
 
-          <div class="rounded-[var(--r-md)] px-3 py-3 mb-1 flex items-center justify-between gap-3" style="background:#fff3a8;">
-            <div class="flex items-center gap-3 min-w-0">
-              <div class="avatar" style="width:34px;height:34px;background:linear-gradient(135deg,#7cc7e8 0%,#fbe46f 70%,#ea9bab 100%);"></div>
-              <div class="min-w-0">
-                <div class="font-semibold text-[0.95rem] leading-tight truncate">Meta Ads · Lead Gen</div>
-                <div class="text-[0.8rem] text-slate mt-0.5">CTR <span class="text-ink font-medium">3.8%</span> · CPA <span class="text-ink font-medium">$4.1</span></div>
+          <div class="flex flex-col gap-1">
+            <button type="button" class="channel-pick px-3 py-3 flex items-center justify-between gap-3" data-channel="meta" aria-pressed="false" aria-controls="hero-kpi-card">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="avatar" style="width:34px;height:34px;background:linear-gradient(135deg,#7cc7e8 0%,#fbe46f 70%,#ea9bab 100%);"></div>
+                <div class="min-w-0">
+                  <div class="font-semibold text-[0.95rem] leading-tight truncate">Meta Ads · Lead Gen</div>
+                  <div class="text-[0.8rem] text-slate mt-0.5">CTR <span class="text-ink font-medium">3.8%</span> · CPA <span class="text-ink font-medium">$4.1</span></div>
+                </div>
               </div>
-            </div>
-            <div class="text-right flex-shrink-0">
-              <div class="text-[0.92rem] font-semibold tracking-tight">+42</div>
-              <div class="text-[0.76rem] text-slate">leads</div>
-            </div>
-          </div>
+              <div class="text-right flex-shrink-0">
+                <div class="text-[0.92rem] font-semibold tracking-tight">+42</div>
+                <div class="text-[0.76rem] text-slate">leads</div>
+              </div>
+            </button>
 
-          <div class="row-clean px-3 py-3 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3 min-w-0">
-              <div class="avatar" style="width:34px;height:34px;background:linear-gradient(135deg,#ea9bab 0%,#cfcdc7 100%);"></div>
-              <div class="min-w-0">
-                <div class="font-semibold text-[0.95rem] leading-tight truncate">Google Ads · Búsqueda</div>
-                <div class="text-[0.8rem] text-slate mt-0.5">CTR <span class="text-ink font-medium">6.1%</span> · CPC <span class="text-ink font-medium">$0.32</span></div>
+            <button type="button" class="channel-pick is-active px-3 py-3 flex items-center justify-between gap-3" data-channel="google" aria-pressed="true" aria-controls="hero-kpi-card">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="avatar" style="width:34px;height:34px;background:linear-gradient(135deg,#ea9bab 0%,#cfcdc7 100%);"></div>
+                <div class="min-w-0">
+                  <div class="font-semibold text-[0.95rem] leading-tight truncate">Google Ads · Búsqueda</div>
+                  <div class="text-[0.8rem] text-slate mt-0.5">CTR <span class="text-ink font-medium">6.1%</span> · CPC <span class="text-ink font-medium">$0.32</span></div>
+                </div>
               </div>
-            </div>
-            <div class="text-right flex-shrink-0">
-              <div class="text-[0.92rem] font-semibold tracking-tight">1.2k</div>
-              <div class="text-[0.76rem] text-slate">clics</div>
-            </div>
-          </div>
+              <div class="text-right flex-shrink-0">
+                <div class="text-[0.92rem] font-semibold tracking-tight">1.2k</div>
+                <div class="text-[0.76rem] text-slate">clics</div>
+              </div>
+            </button>
 
-          <div class="row-clean px-3 py-3 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3 min-w-0">
-              <div class="avatar" style="width:34px;height:34px;background:linear-gradient(135deg,#fbe46f 0%,#7cc7e8 100%);"></div>
-              <div class="min-w-0">
-                <div class="font-semibold text-[0.95rem] leading-tight truncate">Redes + Contenido</div>
-                <div class="text-[0.8rem] text-slate mt-0.5">Alcance <span class="text-ink font-medium">48k</span> · Guardados <span class="text-ink font-medium">+19%</span></div>
+            <button type="button" class="channel-pick px-3 py-3 flex items-center justify-between gap-3" data-channel="social" aria-pressed="false" aria-controls="hero-kpi-card">
+              <div class="flex items-center gap-3 min-w-0">
+                <div class="avatar" style="width:34px;height:34px;background:linear-gradient(135deg,#fbe46f 0%,#7cc7e8 100%);"></div>
+                <div class="min-w-0">
+                  <div class="font-semibold text-[0.95rem] leading-tight truncate">Redes + Contenido</div>
+                  <div class="text-[0.8rem] text-slate mt-0.5">Alcance <span class="text-ink font-medium">48k</span> · Guardados <span class="text-ink font-medium">+19%</span></div>
+                </div>
               </div>
-            </div>
-            <div class="text-right flex-shrink-0">
-              <div class="text-[0.92rem] font-semibold tracking-tight">+310</div>
-              <div class="text-[0.76rem] text-slate">visitas</div>
-            </div>
+              <div class="text-right flex-shrink-0">
+                <div class="text-[0.92rem] font-semibold tracking-tight">+310</div>
+                <div class="text-[0.76rem] text-slate">visitas</div>
+              </div>
+            </button>
           </div>
 
           <div class="mt-4 flex items-center gap-2 text-[0.86rem] text-graphite font-medium">
@@ -463,57 +480,21 @@
           </div>
         </div>
 
-        <!-- KPIs - visible debajo del listado de canales -->
-        <div class="card card-hero w-full p-5 md:p-6 md:rotate-[1deg]">
+        <!-- KPIs - se actualiza al elegir canal -->
+        <div id="hero-kpi-card" class="card card-hero w-full p-5 md:p-6 md:rotate-[1deg]">
           <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 mb-2">
-            <div class="text-[0.82rem] font-medium text-ink">CTR promedio</div>
-            <div class="text-[0.76rem]"><span style="color:#1b8a5a;font-weight:600;">+0.6pp</span> <span class="text-slate">esta semana</span></div>
+            <div id="hero-kpi-label" class="text-[0.82rem] font-medium text-ink">CTR · Google Búsqueda</div>
+            <div id="hero-kpi-delta" class="text-[0.76rem]"><span style="color:#1b8a5a;font-weight:600;">+1.1pp</span> <span class="text-slate">esta semana</span></div>
           </div>
           <div class="flex items-end justify-between gap-6 mb-5">
-            <div class="text-[2.4rem] font-semibold tracking-tight leading-none">4.2%</div>
+            <div id="hero-kpi-big" class="text-[2.4rem] font-semibold tracking-tight leading-none">6.1%</div>
             <div class="text-right">
-              <div class="text-[0.78rem] text-slate">Visitas</div>
-              <div class="font-semibold text-[1.05rem] tracking-tight">+3.1k</div>
+              <div id="hero-kpi-sub-label" class="text-[0.78rem] text-slate">CPC medio</div>
+              <div id="hero-kpi-sub-value" class="font-semibold text-[1.05rem] tracking-tight">$0.32</div>
             </div>
           </div>
 
-          <div class="flex items-end gap-2 h-24">
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:10px;"></span>
-              <span style="background:#ea9bab;height:16px;"></span>
-              <span style="background:#fbe46f;height:28px;"></span>
-            </div>
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:14px;"></span>
-              <span style="background:#ea9bab;height:22px;"></span>
-              <span style="background:#fbe46f;height:40px;"></span>
-            </div>
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:12px;"></span>
-              <span style="background:#ea9bab;height:18px;"></span>
-              <span style="background:#fbe46f;height:34px;"></span>
-            </div>
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:16px;"></span>
-              <span style="background:#ea9bab;height:26px;"></span>
-              <span style="background:#fbe46f;height:46px;"></span>
-            </div>
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:11px;"></span>
-              <span style="background:#ea9bab;height:18px;"></span>
-              <span style="background:#fbe46f;height:32px;"></span>
-            </div>
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:9px;"></span>
-              <span style="background:#ea9bab;height:14px;"></span>
-              <span style="background:#fbe46f;height:26px;"></span>
-            </div>
-            <div class="stack-bar">
-              <span style="background:#7cc7e8;height:8px;"></span>
-              <span style="background:#ea9bab;height:12px;"></span>
-              <span style="background:#fbe46f;height:22px;"></span>
-            </div>
-          </div>
+          <div id="hero-chart-wrap" class="flex items-end gap-2 h-24" role="img" aria-label="Volumen de clics por día · Google Ads"></div>
           <div class="flex justify-between mt-3 text-[0.7rem] text-slate font-medium">
             <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
           </div>
@@ -969,6 +950,84 @@
     });
   }
   selectPlan(1);
+
+  (function heroChannelCharts() {
+    var config = {
+      meta: {
+        label: 'CTR · Meta Ads',
+        big: '3.8%',
+        deltaHtml: '<span style="color:#1b8a5a;font-weight:600;">+0.4pp</span> <span class="text-slate">esta semana</span>',
+        subLabel: 'CPA',
+        subVal: '$4.1',
+        caption: 'Tendencia de CTR por día · Meta Ads',
+        color: '#fbe46f',
+        heights: [26, 34, 22, 38, 32, 28, 24]
+      },
+      google: {
+        label: 'CTR · Google Búsqueda',
+        big: '6.1%',
+        deltaHtml: '<span style="color:#1b8a5a;font-weight:600;">+1.1pp</span> <span class="text-slate">esta semana</span>',
+        subLabel: 'CPC medio',
+        subVal: '$0.32',
+        caption: 'Volumen de clics por día · Google Ads',
+        color: '#ea9bab',
+        heights: [36, 44, 30, 48, 40, 35, 33]
+      },
+      social: {
+        label: 'Alcance · 7 días',
+        big: '48k',
+        deltaHtml: '<span style="color:#1b8a5a;font-weight:600;">+19%</span> <span class="text-slate">guardados</span>',
+        subLabel: 'Visitas al sitio',
+        subVal: '+310',
+        caption: 'Alcance relativo por día · redes y contenido',
+        color: '#7cc7e8',
+        heights: [22, 28, 18, 34, 30, 26, 20]
+      }
+    };
+
+    var wrap = document.getElementById('hero-chart-wrap');
+    var labelEl = document.getElementById('hero-kpi-label');
+    var bigEl = document.getElementById('hero-kpi-big');
+    var deltaEl = document.getElementById('hero-kpi-delta');
+    var subLab = document.getElementById('hero-kpi-sub-label');
+    var subVal = document.getElementById('hero-kpi-sub-value');
+    var buttons = document.querySelectorAll('.channel-pick[data-channel]');
+
+    if (!wrap || !labelEl || !buttons.length) return;
+
+    function renderChart(key) {
+      var cfg = config[key];
+      var max = Math.max.apply(null, cfg.heights.concat([1]));
+      wrap.setAttribute('aria-label', cfg.caption);
+      wrap.innerHTML = cfg.heights.map(function (h) {
+        var px = Math.max(10, Math.round((h / max) * 46));
+        return '<div class="stack-bar"><span style="background:' + cfg.color + ';height:' + px + 'px;"></span></div>';
+      }).join('');
+    }
+
+    function selectHeroChannel(key) {
+      var c = config[key];
+      labelEl.textContent = c.label;
+      bigEl.textContent = c.big;
+      deltaEl.innerHTML = c.deltaHtml;
+      subLab.textContent = c.subLabel;
+      subVal.textContent = c.subVal;
+      buttons.forEach(function (btn) {
+        var on = btn.getAttribute('data-channel') === key;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      renderChart(key);
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        selectHeroChannel(btn.getAttribute('data-channel'));
+      });
+    });
+
+    selectHeroChannel('google');
+  })();
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
