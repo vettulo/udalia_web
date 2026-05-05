@@ -32,7 +32,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = {
@@ -66,10 +66,16 @@
   .eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: #5a5a5e; }
   .pill { background: #fff; border: 1px solid var(--line); border-radius: 9999px; box-shadow: var(--shadow-sm); }
   .logo-mark {
-    width: 34px; height: 34px; border-radius: 9999px; background: var(--ink); color: #fff;
-    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    min-width: 40px; height: 36px; padding: 0 0.42rem; border-radius: 9999px; background: var(--ink); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.14em; flex-shrink: 0;
+    font-family: "Poppins", system-ui, sans-serif; font-weight: 600;
   }
-  .logo-u { font-size: 0.98rem; font-weight: 800; line-height: 1; letter-spacing: -0.06em; }
+  .logo-u { font-size: 1.06rem; line-height: 1; letter-spacing: -0.04em; }
+  .logo-dot { font-size: 1.06rem; line-height: 1; }
+  .logo-wordmark {
+    font-family: "Poppins", system-ui, sans-serif; font-weight: 600; font-size: 1.18rem;
+    letter-spacing: -0.02em; line-height: 1;
+  }
   .btn { display: inline-flex; align-items: center; gap: 0.55rem; border-radius: 9999px; padding: 0.5rem 0.6rem 0.5rem 1.4rem;
     font-size: 0.93rem; font-weight: 500; text-decoration: none; transition: all 0.25s ease; border: 1px solid transparent; line-height: 1; white-space: nowrap; }
   .btn-dark { background: var(--ink); color: #fff; border-color: var(--ink); }
@@ -89,8 +95,8 @@
 <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100%_-_2rem))]">
   <div class="pill flex items-center justify-between pl-2 pr-2 py-2">
     <a href="index.html" class="flex items-center gap-2.5 pl-2">
-      <span class="logo-mark" aria-hidden="true"><span class="logo-u">U</span></span>
-      <span class="font-semibold text-[1.05rem] tracking-tight text-ink">Udalia</span>
+      <span class="logo-mark" aria-hidden="true"><span class="logo-u">u</span><span class="logo-dot">.</span></span>
+      <span class="logo-wordmark text-ink tracking-tight lowercase">udalia</span>
     </a>
     <ul class="hidden md:flex items-center gap-5 text-[0.88rem] font-medium text-graphite">
       <li><a href="index.html#problema" class="hover:text-ink transition">Problema</a></li>
@@ -224,8 +230,8 @@
     <div class="grid md:grid-cols-4 gap-10 mb-12">
       <div class="md:col-span-2">
         <a href="index.html" class="flex items-center gap-2.5">
-          <span class="logo-mark" aria-hidden="true"><span class="logo-u">U</span></span>
-          <span class="text-white font-semibold text-[1.05rem]">Udalia</span>
+          <span class="logo-mark" aria-hidden="true"><span class="logo-u">u</span><span class="logo-dot">.</span></span>
+          <span class="logo-wordmark text-white lowercase">udalia</span>
         </a>
         <p class="mt-4 text-ash max-w-[35ch] text-[0.93rem] leading-relaxed">Estudio digital que construye la presencia que tu negocio merece.</p>
       </div>
@@ -247,7 +253,7 @@
       </div>
     </div>
     <div class="border-t border-white/10 pt-8 flex flex-wrap items-center justify-between gap-4 text-[0.8rem] text-pebble">
-      <span>© 2026 Udalia · Todos los derechos reservados</span>
+      <span>© 2026 udalia · Todos los derechos reservados</span>
       <span>Hecho con cuidado en Argentina</span>
     </div>
   </div>

@@ -75,7 +75,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@600&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -428,21 +428,35 @@
       }
 
       .logo-mark {
-        width: 34px;
-        height: 34px;
+        min-width: 40px;
+        height: 36px;
+        padding: 0 0.42rem;
         border-radius: 9999px;
         background: var(--ink);
         color: #fff;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        gap: 0.14em;
         flex-shrink: 0;
+        font-family: "Poppins", system-ui, sans-serif;
+        font-weight: 600;
       }
       .logo-u {
-        font-size: 0.98rem;
-        font-weight: 800;
+        font-size: 1.06rem;
         line-height: 1;
-        letter-spacing: -0.06em;
+        letter-spacing: -0.04em;
+      }
+      .logo-dot {
+        font-size: 1.06rem;
+        line-height: 1;
+      }
+      .logo-wordmark {
+        font-family: "Poppins", system-ui, sans-serif;
+        font-weight: 600;
+        font-size: 1.18rem;
+        letter-spacing: -0.02em;
+        line-height: 1;
       }
 
       .problem-num {
@@ -560,10 +574,10 @@
       <div class="pill flex items-center justify-between pl-2 pr-2 py-2">
         <a href="index.html" class="flex items-center gap-2.5 pl-2">
           <span class="logo-mark" aria-hidden="true"
-            ><span class="logo-u">U</span></span
+            ><span class="logo-u">u</span><span class="logo-dot">.</span></span
           >
-          <span class="font-semibold text-[1.05rem] tracking-tight"
-            >Udalia</span
+          <span class="logo-wordmark text-ink tracking-tight lowercase"
+            >udalia</span
           >
         </a>
         <ul
@@ -1821,11 +1835,10 @@
           <div class="md:col-span-2">
             <a href="index.html" class="flex items-center gap-2.5">
               <span class="logo-mark" aria-hidden="true"
-                ><span class="logo-u">U</span></span
+                ><span class="logo-u">u</span
+                ><span class="logo-dot">.</span></span
               >
-              <span class="text-white font-semibold text-[1.05rem]"
-                >Udalia</span
-              >
+              <span class="logo-wordmark text-white lowercase">udalia</span>
             </a>
             <p
               class="mt-4 text-ash max-w-[35ch] text-[0.93rem] leading-relaxed"
@@ -1887,7 +1900,7 @@
         <div
           class="border-t border-white/10 pt-8 flex flex-wrap items-center justify-between gap-4 text-[0.8rem] text-pebble"
         >
-          <span>© 2026 Udalia · Todos los derechos reservados</span>
+          <span>© 2026 udalia · Todos los derechos reservados</span>
           <span>Hecho con cuidado en Argentina</span>
         </div>
       </div>
