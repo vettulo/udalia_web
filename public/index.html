@@ -479,6 +479,73 @@
         line-height: 1;
       }
 
+      /* PROCESO — 3 pasos con flechas */
+      .proceso-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        align-items: stretch;
+      }
+      .proceso-grid .step-arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #8a8a8e;
+      }
+      .proceso-grid .step-arrow svg {
+        width: 26px;
+        height: 26px;
+        transform: rotate(90deg);
+      }
+      @media (min-width: 900px) {
+        .proceso-grid {
+          grid-template-columns: 1fr auto 1fr auto 1fr;
+          gap: 1rem;
+        }
+        .proceso-grid .step-arrow svg {
+          transform: none;
+          width: 28px;
+          height: 28px;
+        }
+      }
+      .step-card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: var(--r-lg);
+        padding: 2rem 1.65rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.9rem;
+      }
+      .step-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 9999px;
+        background: #1f1f1f;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        align-self: center;
+      }
+      .step-icon svg {
+        width: 26px;
+        height: 26px;
+      }
+      .step-heading {
+        font-size: 1.05rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        line-height: 1.3;
+        color: var(--ink);
+      }
+      .step-text {
+        font-size: 0.93rem;
+        color: #1f1f22;
+        line-height: 1.6;
+      }
+
       .problem-num {
         font-size: clamp(3.5rem, 7vw, 5rem);
         font-weight: 800;
@@ -923,8 +990,8 @@
             <h3 class="heading mb-3">El problema no es tu negocio</h3>
             <p class="text-graphite text-[0.95rem] leading-relaxed">
               El problema es que tu presencia online no está a la altura de lo
-              que haces. Los buenos negocios no deberían perder clientes por
-              una mala presencia digital. Eso no es justo, y tiene solución.
+              que haces. Los buenos negocios no deberían perder clientes por una
+              mala presencia digital. Eso no es justo, y tiene solución.
             </p>
           </div>
         </div>
@@ -990,128 +1057,143 @@
       </div>
     </section>
 
-    <!-- BUILT FOR HIGH PERFORMANCE -->
-    <section id="solucion" class="pt-20 md:pt-28 pb-6 md:pb-8">
-      <div class="max-w-7xl mx-auto px-6 md:px-10">
-        <div class="text-center max-w-3xl mx-auto">
-          <h2 class="title">Un proceso claro. Sin sorpresas.</h2>
+    <!-- NUESTRO PROCESO -->
+    <section id="solucion" class="py-20 md:py-28" style="background:#FBFAF6">
+      <div class="max-w-6xl mx-auto px-6 md:px-10">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="eyebrow mb-5">Nuestro proceso</div>
+          <h2 class="title">
+            No te damos una herramienta. Te damos un sistema que trabaja.
+          </h2>
           <p
-            class="mt-5 text-graphite text-[1rem] max-w-[58ch] mx-auto leading-relaxed"
+            class="mt-5 text-graphite text-[1rem] max-w-[62ch] mx-auto leading-relaxed"
           >
-            Solo necesitas un buen negocio. Del resto nos encargamos nosotros.
+            Empezamos definiendo juntos el mensaje de tu negocio: quién eres,
+            para quién y por qué alguien debería elegirte. Esa claridad se
+            convierte en la base de todo: el sitio, las campañas, el contenido.
+            Y desde ahí construimos el sistema completo.
           </p>
         </div>
-      </div>
-    </section>
 
-    <!-- METODO -->
-    <section class="pt-8 md:pt-10 pb-20 md:pb-28">
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div
-          class="gradient-bg p-8 md:p-16 text-white"
-          style="border-radius: var(--r-xl)"
-        >
-          <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-            <div>
-              <h2 class="title text-white">
-                No te damos una herramienta. Te damos un sistema que trabaja.
-              </h2>
-              <p class="mt-5 text-ash text-[1rem] max-w-[50ch] leading-relaxed">
-                Empezamos definiendo juntos el mensaje de tu negocio — quién
-                eres, para quién y por qué alguien debería elegirte. Esa
-                claridad se convierte en la base de todo: el sitio, las
-                campañas, el contenido. Y desde ahí construimos el sistema
-                completo.
-              </p>
-              <div class="mt-8">
-                <a
-                  href="https://calendar.app.google/4di6MrBXSRfquVPw6"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-accent"
-                  >Agenda una llamada<span class="arrow">→</span></a
-                >
-              </div>
+        <div class="proceso-grid">
+          <article class="step-card">
+            <div class="step-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+                <circle cx="8" cy="10" r="0.9" fill="#fff" stroke="none" />
+                <circle cx="12" cy="10" r="0.9" fill="#fff" stroke="none" />
+                <circle cx="16" cy="10" r="0.9" fill="#fff" stroke="none" />
+              </svg>
             </div>
+            <h3 class="step-heading">01. Definimos tu mensaje juntos</h3>
+            <p class="step-text">
+              Trabajamos contigo para encontrar las palabras exactas que
+              describen lo que haces, para quién lo haces y por qué alguien
+              debería elegirte. Un mensaje claro que funciona en cualquier canal
+              y en cualquier conversación.
+            </p>
+          </article>
 
-            <div class="space-y-4">
-              <div
-                class="flex items-start gap-5 p-6"
-                style="
-                  border: 1px solid rgba(255, 255, 255, 0.1);
-                  border-radius: var(--r-md);
-                  background: rgba(255, 255, 255, 0.03);
-                "
-              >
-                <span
-                  class="num-circle"
-                  style="background: #fbe46f; color: var(--ink)"
-                  >01</span
-                >
-                <div>
-                  <div class="text-white font-medium text-[1.05rem] mb-1">
-                    Definimos tu mensaje juntos
-                  </div>
-                  <div class="text-ash text-[0.9rem] leading-relaxed">
-                    Trabajamos contigo para encontrar las palabras exactas que
-                    describen lo que haces, para quién lo haces y por qué
-                    alguien debería elegirte. Un mensaje claro que funciona en
-                    cualquier canal y en cualquier conversación.
-                  </div>
-                </div>
-              </div>
-              <div
-                class="flex items-start gap-5 p-6"
-                style="
-                  border: 1px solid rgba(255, 255, 255, 0.1);
-                  border-radius: var(--r-md);
-                  background: rgba(255, 255, 255, 0.03);
-                "
-              >
-                <span
-                  class="num-circle"
-                  style="background: #fbe46f; color: var(--ink)"
-                  >02</span
-                >
-                <div>
-                  <div class="text-white font-medium text-[1.05rem] mb-1">
-                    Construimos tu presencia
-                  </div>
-                  <div class="text-ash text-[0.9rem] leading-relaxed">
-                    Sitio, redes, contenido, campañas. Todo alineado al mismo
-                    mensaje, construido por nuestro equipo. Tú apruebas,
-                    nosotros ejecutamos.
-                  </div>
-                </div>
-              </div>
-              <div
-                class="flex items-start gap-5 p-6"
-                style="
-                  border: 1px solid rgba(255, 255, 255, 0.1);
-                  border-radius: var(--r-md);
-                  background: rgba(255, 255, 255, 0.03);
-                "
-              >
-                <span
-                  class="num-circle"
-                  style="background: #fbe46f; color: var(--ink)"
-                  >03</span
-                >
-                <div>
-                  <div class="text-white font-medium text-[1.05rem] mb-1">
-                    Tu negocio empieza a ser reconocido
-                  </div>
-                  <div class="text-ash text-[0.9rem] leading-relaxed">
-                    Con el mensaje claro y los sistemas funcionando, los
-                    clientes correctos te encuentran, te entienden y confían en
-                    ti antes de la primera conversación. Nos quedamos contigo
-                    gestionando, optimizando y midiendo para que ese crecimiento
-                    no pare.
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="step-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
           </div>
+
+          <article class="step-card">
+            <div class="step-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="6" cy="6" r="2.2" />
+                <circle cx="18" cy="6" r="2.2" />
+                <circle cx="12" cy="18" r="2.2" />
+                <line x1="7.5" y1="7.5" x2="10.5" y2="16.5" />
+                <line x1="16.5" y1="7.5" x2="13.5" y2="16.5" />
+                <line x1="8" y1="6" x2="16" y2="6" />
+              </svg>
+            </div>
+            <h3 class="step-heading">02. Construimos tu presencia</h3>
+            <p class="step-text">
+              Sitio, redes, contenido, campañas. Todo alineado al mismo mensaje,
+              construido por nuestro equipo. Tú apruebas, nosotros ejecutamos.
+            </p>
+          </article>
+
+          <div class="step-arrow" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="13 6 19 12 13 18" />
+            </svg>
+          </div>
+
+          <article class="step-card">
+            <div class="step-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="4" y1="20" x2="4" y2="13" />
+                <line x1="9" y1="20" x2="9" y2="10" />
+                <line x1="14" y1="20" x2="14" y2="14" />
+                <line x1="19" y1="20" x2="19" y2="7" />
+                <polyline points="14 5 19 5 19 10" />
+                <line x1="19" y1="5" x2="13" y2="11" />
+              </svg>
+            </div>
+            <h3 class="step-heading">
+              03. Tu negocio empieza a ser reconocido
+            </h3>
+            <p class="step-text">
+              Con el mensaje claro y los sistemas funcionando, los clientes
+              correctos te encuentran, te entienden y confían en ti antes de la
+              primera conversación. Nos quedamos contigo gestionando,
+              optimizando y midiendo para que ese crecimiento no pare.
+            </p>
+          </article>
+        </div>
+
+        <div class="mt-12 flex justify-center">
+          <a
+            href="https://calendar.app.google/4di6MrBXSRfquVPw6"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-dark"
+            >Agenda una llamada<span class="arrow">→</span></a
+          >
         </div>
       </div>
     </section>
@@ -2010,7 +2092,7 @@
     </section>
 
     <!-- URGENCIA: último empujón -->
-    <section class="py-20 md:py-28">
+    <section class="py-20 md:py-28" style="background:#FBFAF6">
       <div class="max-w-3xl mx-auto px-6 md:px-10 text-center">
         <h2 class="title text-ink">
           Cada semana sin una presencia clara es una semana entregando clientes
@@ -2045,8 +2127,8 @@
         <p
           class="mt-7 text-slate text-[0.95rem] max-w-[55ch] mx-auto leading-relaxed"
         >
-          30 minutos. Miramos tu negocio juntos y te decimos honestamente qué
-          lo está frenando, trabajes con nosotros o no.
+          30 minutos. Miramos tu negocio juntos y te decimos honestamente qué lo
+          está frenando, trabajes con nosotros o no.
         </p>
         <div class="mt-9 flex flex-wrap justify-center items-center gap-3">
           <a
