@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f1ec" />
+    <meta name="author" content="Udalia" />
+    <meta name="robots" content="index, follow" />
+    <link
+      rel="canonical"
+      href="https://udalia.com/caso-link-in-bio-wordpress.html"
+    />
+
+    <title>No necesitas Linktree si tienes WordPress · Udalia</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta
+      name="description"
+      content="Cómo construimos una página /links y un directorio de deals dentro del WordPress de una travel blogger con 28.000 seguidores: tráfico que se queda, autoridad de dominio y afiliados rastreables."
+    />
+
+    <meta property="og:site_name" content="Udalia" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="No necesitas Linktree si tienes WordPress · Udalia"
+    />
+    <meta
+      property="og:description"
+      content="Una página de link in bio y un directorio de deals construidos a medida dentro del propio WordPress de una travel blogger. Tráfico que no se fuga a plataformas de terceros."
+    />
+    <meta
+      property="og:url"
+      content="https://udalia.com/caso-link-in-bio-wordpress.html"
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="es_AR" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="No necesitas Linktree si tienes WordPress · Udalia"
+    />
+    <meta
+      name="twitter:description"
+      content="Cómo le construimos a una travel blogger una página /links y un directorio de deals dentro de su propio WordPress, sin perder tráfico ni autoridad de dominio."
+    />
+    <meta
+      name="twitter:image"
+      content="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "No necesitas Linktree si tienes WordPress: lo que construimos para una travel blogger con 28.000 seguidores",
+        "description": "Caso de estudio: cómo reemplazamos Linktree con una página /links dentro del propio WordPress de una travel blogger, más un directorio de deals con filtros para ingresos por afiliados.",
+        "author": { "@type": "Organization", "name": "Udalia" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Udalia",
+          "url": "https://udalia.com/"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://udalia.com/caso-link-in-bio-wordpress.html"
+        },
+        "image": [
+          "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&h=630&q=80"
+        ],
+        "inLanguage": "es-AR"
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ["Albert Sans", "system-ui", "sans-serif"] },
+            colors: {
+              ink: "#0e0e10",
+              graphite: "#1f1f22",
+              slate: "#5a5a5e",
+              pebble: "#8a8a8e",
+              ash: "#cfcdc7",
+              line: "#e6e2d9",
+              dark: "#212229",
+              accent: "#fbe46f",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --r-md: 20px;
+        --r-lg: 28px;
+        --r-xl: 36px;
+        --line: #e6e2d9;
+        --bg: #f3f1ec;
+        --bg-alt: #ebe8e1;
+        --ink: #0e0e10;
+        --shadow-sm: 0 1px 2px rgba(14, 14, 16, 0.04);
+        --shadow-md:
+          0 1px 2px rgba(14, 14, 16, 0.04),
+          0 8px 24px -8px rgba(14, 14, 16, 0.08);
+      }
+      html {
+        scroll-behavior: smooth;
+        overflow-x: clip;
+      }
+      body {
+        font-family: "Albert Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: -0.01em;
+        overflow-x: clip;
+      }
+      img,
+      svg {
+        max-width: 100%;
+      }
+      .grain::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+      .title-article {
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        line-height: 1.08;
+        text-wrap: balance;
+      }
+      .eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #5a5a5e;
+      }
+      .pill {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 9999px;
+        box-shadow: var(--shadow-sm);
+      }
+      .logo-mark {
+        min-width: 40px;
+        height: 36px;
+        padding: 0 0.42rem;
+        border-radius: 9999px;
+        background: var(--ink);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.14em;
+        flex-shrink: 0;
+        font-family: "Poppins", system-ui, sans-serif;
+        font-weight: 600;
+      }
+      .logo-u {
+        font-size: 1.06rem;
+        line-height: 1;
+        letter-spacing: -0.04em;
+      }
+      .logo-dot {
+        font-size: 1.06rem;
+        line-height: 1;
+      }
+      .logo-wordmark {
+        font-family: "Poppins", system-ui, sans-serif;
+        font-weight: 600;
+        font-size: 1.18rem;
+        letter-spacing: -0.02em;
+        line-height: 1;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        border-radius: 9999px;
+        padding: 0.5rem 0.6rem 0.5rem 1.4rem;
+        font-size: 0.93rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        border: 1px solid transparent;
+        line-height: 1;
+        white-space: nowrap;
+      }
+      .btn-dark {
+        background: var(--ink);
+        color: #fff;
+        border-color: var(--ink);
+      }
+      .btn-dark:hover {
+        background: #2c2c2f;
+        transform: translateY(-1px);
+      }
+      .btn .arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 9999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        background: #fff;
+        color: var(--ink);
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+      }
+      .btn:hover .arrow {
+        transform: translateX(2px);
+      }
+      .btn-sm {
+        padding: 0.32rem 0.4rem 0.32rem 1rem;
+        font-size: 0.85rem;
+        gap: 0.5rem;
+      }
+      .btn-sm .arrow {
+        width: 26px;
+        height: 26px;
+        font-size: 0.78rem;
+      }
+      .sys-card {
+        border: 1px solid var(--line);
+        border-radius: var(--r-md);
+        background: #fff;
+        padding: 1.25rem;
+      }
+      .feature-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .feature-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 0.4rem 0;
+        font-size: 0.97rem;
+        line-height: 1.55;
+        color: #1f1f22;
+      }
+      .feature-list li::before {
+        content: "→";
+        color: var(--ink);
+        font-weight: 600;
+        flex-shrink: 0;
+        margin-top: 0.18rem;
+      }
+      pre.code-block {
+        background: #0e0e10;
+        color: #e6e2d9;
+        border-radius: var(--r-md);
+        padding: 1.1rem 1.3rem;
+        font-size: 0.85rem;
+        line-height: 1.55;
+        overflow-x: auto;
+        font-family: "SFMono-Regular", ui-monospace, Menlo, monospace;
+        letter-spacing: 0;
+      }
+    </style>
+  </head>
+  <body class="grain">
+    <nav
+      class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[min(960px,calc(100%_-_2rem))]"
+    >
+      <div class="pill flex items-center justify-between pl-2 pr-2 py-2 gap-2">
+        <a
+          href="index.html"
+          class="flex items-center gap-2.5 pl-2 flex-shrink-0"
+        >
+          <span class="logo-mark" aria-hidden="true"
+            ><span class="logo-u">u</span><span class="logo-dot">.</span></span
+          >
+          <span class="logo-wordmark text-ink tracking-tight lowercase"
+            >udalia</span
+          >
+        </a>
+        <ul
+          class="hidden lg:flex items-center gap-4 text-[0.88rem] font-medium text-graphite flex-wrap justify-end"
+        >
+          <li>
+            <a href="index.html#problema" class="hover:text-ink transition"
+              >¿Esto es para ti?</a
+            >
+          </li>
+          <li>
+            <a href="index.html#solucion" class="hover:text-ink transition"
+              >Método</a
+            >
+          </li>
+          <li>
+            <a href="index.html#casos" class="hover:text-ink transition"
+              >Proyectos</a
+            >
+          </li>
+        </ul>
+        <a
+          href="https://calendar.app.google/4di6MrBXSRfquVPw6"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-dark btn-sm flex-shrink-0"
+          >Agendar<span class="arrow">→</span></a
+        >
+      </div>
+    </nav>
+
+    <article class="relative z-[2] pt-36 md:pt-44 pb-20 md:pb-28">
+      <div class="max-w-3xl mx-auto px-6 md:px-10">
+        <p class="eyebrow mb-4">Caso de estudio · WordPress · Travel blog</p>
+        <h1 class="title-article text-ink">
+          No necesitas Linktree si tienes WordPress: lo que construimos para una
+          travel blogger
+        </h1>
+
+        <div
+          class="mt-10 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            Cuando Mari, una blogger de viajes en familia con más de
+            <strong class="text-ink font-semibold">28.000 seguidores</strong> en
+            Instagram, nos escribió, tenía un problema concreto: necesitaba una
+            página de "link in bio" para centralizar sus links desde redes
+            sociales, pero no quería usar Linktree ni Beacons.
+          </p>
+          <p>
+            La razón era simple: cada click que salía de su sitio era tráfico
+            que no volvía. Pageviews perdidas. Autoridad de dominio regalada a
+            una plataforma de terceros. Y con un sitio de viajes que vive de
+            visitas orgánicas y afiliados, eso tiene un costo real.
+          </p>
+          <p>
+            Entonces nos pidió algo específico: que se viera como Linktree, pero
+            que viviera adentro de su WordPress.
+          </p>
+        </div>
+
+        <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">
+          El problema con las páginas de link in bio de terceros
+        </h2>
+        <div
+          class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            Linktree, Beacons, Later Link in Bio y similares resuelven un
+            problema visual, pero crean otro: te sacan del ecosistema de tu
+            propio sitio.
+          </p>
+          <p>
+            Cuando alguien hace click en tu link de Instagram y aterriza en
+            <code
+              class="bg-[var(--bg-alt)] px-1.5 py-0.5 rounded text-[0.92em] text-ink font-mono"
+              >linktr.ee/tuusuario</code
+            >, eso le da autoridad a Linktree, no a vos. No acumula tiempo en tu
+            sitio. No cuenta como sesión en tu Analytics. No indexa tu dominio.
+          </p>
+          <p>
+            Para una persona con un sitio nuevo o pequeño, quizás no importa
+            tanto. Pero para alguien que ya tiene años de contenido, SEO
+            construido y una audiencia fiel, es una fuga innecesaria.
+          </p>
+        </div>
+
+        <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">
+          Lo que construimos: una página /links dentro de su WordPress
+        </h2>
+        <div
+          class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            La solución fue crear una página personalizada dentro de su propio
+            WordPress, accesible en
+            <strong class="text-ink font-semibold"
+              >marionthemap.com/links/</strong
+            >, diseñada visualmente para que se comportara exactamente como una
+            página de Linktree o Beacons, pero con todas las ventajas de estar
+            en su propio dominio.
+          </p>
+        </div>
+
+        <figure class="mt-8 rounded-[var(--r-lg)] overflow-hidden border border-line bg-white shadow-[var(--shadow-sm)]">
+          <div class="bg-[var(--bg-alt)] border-b border-line px-3 py-2 flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+            <span class="ml-3 text-[0.74rem] text-slate truncate">marionthemap.com/links/</span>
+          </div>
+          <img
+            src="assets/work/mari-links.png"
+            alt="Página /links de Marion the Map dentro de su WordPress"
+            class="w-full block"
+            loading="lazy"
+          />
+          <figcaption class="px-4 py-3 text-[0.82rem] text-slate border-t border-line">La página <code class="text-ink">/links/</code> dentro del propio WordPress, con look de Linktree pero sin perder tráfico al dominio de terceros.</figcaption>
+        </figure>
+
+        <div
+          class="mt-8 rounded-[var(--r-lg)] border border-line bg-[var(--bg-alt)] p-5 md:p-8 shadow-[var(--shadow-sm)]"
+        >
+          <p
+            class="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-slate mb-4"
+          >
+            Qué incluye la página
+          </p>
+          <ul class="feature-list">
+            <li>Avatar circular con foto de perfil y nombre.</li>
+            <li>Bio corta, pensada para contexto rápido desde redes.</li>
+            <li>
+              Botones grandes y clicables, uno por destino o recurso clave.
+            </li>
+            <li>
+              Diseño limpio, centrado, mobile-first (donde está el ~90% del
+              tráfico social).
+            </li>
+            <li>
+              URL rastreable con UTMs para distinguir el tráfico que viene de
+              cada red.
+            </li>
+          </ul>
+        </div>
+
+        <p class="mt-8 text-[1.05rem] text-graphite leading-relaxed">
+          El link en su perfil de Instagram apunta a:
+        </p>
+
+        <pre class="code-block mt-4"><code>marionthemap.com/links/</code></pre>
+
+        <div
+          class="mt-8 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            Así puede ver en Google Analytics exactamente cuánto tráfico genera
+            cada red, sin perder ni una sesión.
+          </p>
+          <p>
+            <strong class="text-ink font-semibold"
+              >Lo más importante: todo el tráfico se queda en su sitio.</strong
+            >
+            No hay plataforma intermediaria. Cada click suma tiempo en sesión,
+            reduce el bounce rate atribuible a redes y contribuye a la autoridad
+            del dominio.
+          </p>
+        </div>
+
+        <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">
+          El segundo proyecto: una página de descuentos y deals con filtros
+        </h2>
+        <div
+          class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            El segundo pedido fue más ambicioso: Mari recopila activamente
+            descuentos, herramientas, apps y servicios que recomienda a su
+            audiencia de viajes familiares. Antes los tenía dispersos en posts o
+            en una página estática sin estructura.
+          </p>
+          <p>
+            Lo que necesitaba era una página que funcionara como directorio:
+            filtrable, visual y fácil de mantener.
+          </p>
+          <p>
+            Construimos
+            <strong class="text-ink font-semibold"
+              >marionthemap.com/deals/</strong
+            >
+            con las siguientes funcionalidades:
+          </p>
+        </div>
+
+        <figure class="mt-8 rounded-[var(--r-lg)] overflow-hidden border border-line bg-white shadow-[var(--shadow-sm)]">
+          <div class="bg-[var(--bg-alt)] border-b border-line px-3 py-2 flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></span>
+            <span class="ml-3 text-[0.74rem] text-slate truncate">marionthemap.com/deals/</span>
+          </div>
+          <img
+            src="assets/work/mari-deals.png"
+            alt="Directorio de deals de Marion the Map con filtros por categoría y búsqueda"
+            class="w-full block"
+            loading="lazy"
+          />
+          <figcaption class="px-4 py-3 text-[0.82rem] text-slate border-t border-line">El directorio <code class="text-ink">/deals/</code> con filtros por categoría, búsqueda libre y cards visuales por cada deal.</figcaption>
+        </figure>
+
+        <div class="mt-8 grid md:grid-cols-2 gap-4">
+          <div class="sys-card">
+            <p
+              class="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-slate mb-3"
+            >
+              Filtros por categoría
+            </p>
+            <p class="text-[0.92rem] text-graphite leading-relaxed">
+              Cash Back &amp; Points, Flights &amp; Deals, Hotels &amp; Home
+              Swaps, Attractions &amp; Activities, Photography, Tools &amp;
+              Apps, Credit Cards, Shopping y Coupons. Con un click, la audiencia
+              ve solo lo que le interesa.
+            </p>
+          </div>
+          <div class="sys-card">
+            <p
+              class="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-slate mb-3"
+            >
+              Búsqueda libre
+            </p>
+            <p class="text-[0.92rem] text-graphite leading-relaxed">
+              Un campo de búsqueda en tiempo real para encontrar cualquier
+              producto o servicio por nombre.
+            </p>
+          </div>
+          <div class="sys-card">
+            <p
+              class="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-slate mb-3"
+            >
+              Cards visuales por deal
+            </p>
+            <p class="text-[0.92rem] text-graphite leading-relaxed">
+              Logo del servicio, título, descripción del beneficio, puntos clave
+              en lista, CTA con link de afiliado y categoría como etiqueta.
+            </p>
+          </div>
+          <div class="sys-card">
+            <p
+              class="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-slate mb-3"
+            >
+              Fácil de actualizar
+            </p>
+            <p class="text-[0.92rem] text-graphite leading-relaxed">
+              Mari puede agregar nuevas deals sin tocar código. Toda la gestión
+              vive en el backend de WordPress.
+            </p>
+          </div>
+        </div>
+
+        <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">
+          Por qué esto importa para sitios basados en afiliados
+        </h2>
+        <div
+          class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            Si tu modelo de negocio incluye links de afiliados, tener una página
+            centralizada y actualizada es un activo. Es el lugar al que podés
+            mandar a tu audiencia cuando alguien te pregunta "¿qué apps usás?" o
+            "¿dónde encuentro ese descuento?".
+          </p>
+          <p>Una página de deals bien diseñada:</p>
+        </div>
+
+        <div
+          class="mt-6 rounded-[var(--r-lg)] border border-line bg-[var(--bg-alt)] p-5 md:p-8 shadow-[var(--shadow-sm)]"
+        >
+          <ul class="feature-list">
+            <li>
+              Concentra los clicks de afiliados en un solo lugar rastreable.
+            </li>
+            <li>
+              Puede posicionarse orgánicamente para búsquedas tipo "descuentos
+              viajes familia".
+            </li>
+            <li>Da credibilidad y estructura a las recomendaciones.</li>
+            <li>Funciona como página evergreen que crece con el tiempo.</li>
+          </ul>
+        </div>
+
+        <p class="mt-8 text-[1.05rem] text-graphite leading-relaxed">
+          En el caso de Mari, la página está indexada, tiene su propio meta
+          description y sigue sumando deals. Es un activo que se construye solo
+          mientras ella sigue trabajando su contenido.
+        </p>
+
+        <h2 class="mt-14 text-2xl font-bold tracking-tight text-ink">
+          Lo que esto dice sobre cómo pensamos el trabajo en Udalia
+        </h2>
+        <div
+          class="mt-5 space-y-6 text-[1.05rem] text-graphite leading-relaxed"
+        >
+          <p>
+            Ninguna de estas dos páginas era un template descargado ni un plugin
+            instalado con configuración por defecto.
+          </p>
+          <p>
+            El brief inicial era:
+            <em>"quiero algo como Linktree pero que no me saque del sitio."</em>
+            Y el resultado fue una solución construida a medida, integrada en su
+            infraestructura existente, con decisiones de diseño pensadas para su
+            audiencia y su modelo de negocio.
+          </p>
+          <p>
+            Eso es lo que hacemos: entender el problema real detrás del pedido,
+            y construir lo que lo resuelve de verdad.
+          </p>
+        </div>
+
+        <div
+          class="mt-16 p-8 md:p-10 rounded-[var(--r-xl)] border border-line bg-white"
+          style="box-shadow: var(--shadow-md)"
+        >
+          <h2 class="text-xl md:text-2xl font-bold text-ink tracking-tight">
+            Tu sitio puede hacer más de lo que hace hoy.
+          </h2>
+          <p class="mt-5 text-[1.05rem] text-graphite leading-relaxed">
+            Si tu sitio existe pero no está trabajando para tu negocio, eso
+            tiene solución. En Udalia construimos el mensaje, la presencia y los
+            sistemas para que tu marca sea encontrada y elegida. Sin
+            herramientas genéricas: con lo que tu negocio necesita, construido a
+            medida.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a
+              href="https://calendar.app.google/4di6MrBXSRfquVPw6"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-dark"
+              >Agendar una llamada<span class="arrow">→</span></a
+            >
+            <a
+              href="index.html"
+              class="text-[0.93rem] font-medium text-graphite hover:text-ink transition"
+              >Inicio</a
+            >
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <footer class="bg-dark text-ash py-16 mt-10">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="grid md:grid-cols-4 gap-10 mb-12">
+          <div class="md:col-span-2">
+            <a href="index.html" class="flex items-center gap-2.5">
+              <span class="logo-mark" aria-hidden="true"
+                ><span class="logo-u">u</span
+                ><span class="logo-dot">.</span></span
+              >
+              <span class="logo-wordmark text-white lowercase">udalia</span>
+            </a>
+            <p
+              class="mt-4 text-ash max-w-[35ch] text-[0.93rem] leading-relaxed"
+            >
+              Estudio digital que construye la presencia que tu negocio merece.
+            </p>
+          </div>
+          <div>
+            <h5
+              class="text-white text-[0.78rem] tracking-[0.15em] uppercase font-medium mb-4"
+            >
+              Estudio
+            </h5>
+            <ul class="space-y-2.5 text-[0.9rem]">
+              <li>
+                <a
+                  href="index.html#problema"
+                  class="hover:text-white transition"
+                  >¿Esto es para ti?</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#solucion"
+                  class="hover:text-white transition"
+                  >Método</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#casos"
+                  class="hover:text-white transition"
+                  >Proyectos</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5
+              class="text-white text-[0.78rem] tracking-[0.15em] uppercase font-medium mb-4"
+            >
+              Contacto
+            </h5>
+            <ul class="space-y-2.5 text-[0.9rem]">
+              <li>
+                <a
+                  href="mailto:hola@udalia.com"
+                  class="hover:text-white transition"
+                  >hola@udalia.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://calendar.app.google/4di6MrBXSRfquVPw6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hover:text-white transition"
+                  >Agendar llamada</a
+                >
+              </li>
+              <li>
+                <a
+                  href="index.html#contacto"
+                  class="hover:text-white transition"
+                  >Auditoría gratuita</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-white/10 pt-8 flex flex-wrap items-center justify-between gap-4 text-[0.8rem] text-pebble"
+        >
+          <span>© 2026 udalia · Todos los derechos reservados</span>
+          <span>Hecho con cuidado en Argentina</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
