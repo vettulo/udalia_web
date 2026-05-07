@@ -257,6 +257,67 @@
       .card-group .card-image .mt-3 {
         margin-top: 0.55rem;
       }
+
+      /* PROJ CARDS — typographic card pattern (no photo) */
+      .proj-card-top {
+        background: var(--bg-alt);
+        padding: 1.4rem 1.4rem 1.6rem;
+        height: 240px;
+        position: relative;
+        overflow: hidden;
+      }
+      .proj-card-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.18;
+        color: var(--ink);
+        max-width: 14ch;
+      }
+      .proj-card-icon {
+        position: absolute;
+        top: 1.05rem;
+        right: 1.05rem;
+        width: 42px;
+        height: 42px;
+        border-radius: 9999px;
+        border: 2px solid #FC5130;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #FC5130;
+        background: rgba(252, 81, 48, 0.06);
+      }
+      .proj-card-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .proj-card-bottom {
+        background: #fff;
+        padding: 1.1rem 1.25rem 1.3rem;
+      }
+      .proj-card-cat {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: 0;
+        margin-bottom: 0.75rem;
+      }
+      .proj-card-pill {
+        display: inline-block;
+        padding: 0.34rem 0.85rem;
+        background: #ECEAE3;
+        color: var(--ink);
+        font-size: 0.78rem;
+        font-weight: 500;
+        border-radius: 9999px;
+      }
+      .group:hover .proj-card-title {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+
       /* FAQ - editorial grid (always-visible Q&A) */
       .faq-grid article {
         border-left: 2px solid var(--line);
@@ -1350,7 +1411,7 @@
 
         <div class="card-group">
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <!-- Card 1: Link in bio + página de deals · WordPress · Travel blogger -->
+            <!-- Card 1: WordPress / Links / Deals -->
             <div class="card-image" style="border-style: none">
               <a
                 href="caso-link-in-bio-wordpress.html"
@@ -1359,7 +1420,7 @@
                 <div class="relative overflow-hidden" style="height: 200px">
                   <img
                     src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&q=80"
-                    alt="Link in bio + página de deals · WordPress · Travel blogger"
+                    alt="Marion the Map · Travel blog"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
                   <div
@@ -1367,57 +1428,25 @@
                     style="
                       background: linear-gradient(
                         to bottom,
-                        rgba(0, 0, 0, 0.08) 0%,
-                        rgba(0, 0, 0, 0.36) 100%
+                        rgba(0, 0, 0, 0.18) 0%,
+                        rgba(0, 0, 0, 0.5) 100%
                       );
                     "
                   ></div>
                   <div
-                    class="absolute inset-0 flex items-center justify-center gap-3 text-white px-4 text-center"
+                    class="absolute inset-0 flex items-end p-5 text-white"
                   >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      stroke-width="2.2"
-                      class="flex-shrink-0"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <line x1="2" y1="12" x2="22" y2="12" />
-                      <path
-                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                      />
-                    </svg>
                     <span
-                      class="font-bold text-[0.95rem] md:text-[1.05rem] tracking-tight drop-shadow-md leading-tight"
-                      >Link in bio + página de deals · WordPress · Travel
-                      blogger</span
+                      class="font-bold text-[1.05rem] md:text-[1.15rem] tracking-tight drop-shadow-md leading-[1.2]"
+                      >Más tráfico.<br />Mejores enlaces.<br />Más ventas.</span
                     >
-                  </div>
-                  <div
-                    class="absolute bottom-3 left-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    Historia
-                  </div>
-                  <div
-                    class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    2026
                   </div>
                 </div>
                 <div class="px-5 py-5" style="background: #fff">
+                  <div class="proj-card-cat">WordPress / Links / Deals</div>
+                  <span class="proj-card-pill">UTMs + afiliados</span>
                   <h3
-                    class="heading mb-2 group-hover:underline underline-offset-4 decoration-1"
+                    class="heading mt-4 mb-2 group-hover:underline underline-offset-4 decoration-1"
                   >
                     No necesitas Linktree si tienes WordPress
                   </h3>
@@ -1433,7 +1462,7 @@
               </a>
             </div>
 
-            <!-- Card 2: Newsletter turismo histórico -->
+            <!-- Card 2: Newsletter / Turismo -->
             <div class="card-image" style="border-style: none">
               <a
                 href="caso-newsletter-turismo-historico.html"
@@ -1441,7 +1470,7 @@
               >
                 <div class="relative overflow-hidden" style="height: 200px">
                   <img
-                    src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=900&q=80"
+                    src="https://images.unsplash.com/photo-1674480658851-75e8c7ba54ff?w=900&q=80"
                     alt="Marca de turismo histórico"
                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                   />
@@ -1450,55 +1479,25 @@
                     style="
                       background: linear-gradient(
                         to bottom,
-                        rgba(0, 0, 0, 0.08) 0%,
-                        rgba(0, 0, 0, 0.36) 100%
+                        rgba(0, 0, 0, 0.18) 0%,
+                        rgba(0, 0, 0, 0.5) 100%
                       );
                     "
                   ></div>
                   <div
-                    class="absolute inset-0 flex items-center justify-center gap-3 text-white px-4 text-center"
+                    class="absolute inset-0 flex items-end p-5 text-white"
                   >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      stroke-width="2.2"
-                      class="flex-shrink-0"
-                    >
-                      <path
-                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                      />
-                      <polyline points="22,6 12,13 2,6" />
-                    </svg>
                     <span
-                      class="font-bold text-[0.95rem] md:text-[1.05rem] tracking-tight drop-shadow-md leading-tight"
-                      >Turismo histórico · Newsletter</span
+                      class="font-bold text-[1.05rem] md:text-[1.15rem] tracking-tight drop-shadow-md leading-[1.2]"
+                      >El turismo<br />histórico<br />también se lee.</span
                     >
-                  </div>
-                  <div
-                    class="absolute bottom-3 left-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    Historia
-                  </div>
-                  <div
-                    class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    2026
                   </div>
                 </div>
                 <div class="px-5 py-5" style="background: #fff">
+                  <div class="proj-card-cat">Newsletter / Turismo</div>
+                  <span class="proj-card-pill">23–27% aperturas</span>
                   <h3
-                    class="heading mb-2 group-hover:underline underline-offset-4 decoration-1"
+                    class="heading mt-4 mb-2 group-hover:underline underline-offset-4 decoration-1"
                   >
                     Cómo una marca de turismo histórico mejoró su newsletter sin
                     perder su voz
@@ -1515,7 +1514,7 @@
               </a>
             </div>
 
-            <!-- Card 3: comunidad residencial Florida -->
+            <!-- Card 3: Comunidad / Florida 55+ -->
             <div class="card-image" style="border-style: none">
               <a
                 href="caso-comunidad-florida-55.html"
@@ -1532,56 +1531,25 @@
                     style="
                       background: linear-gradient(
                         to bottom,
-                        rgba(0, 0, 0, 0.08) 0%,
-                        rgba(0, 0, 0, 0.38) 100%
+                        rgba(0, 0, 0, 0.18) 0%,
+                        rgba(0, 0, 0, 0.5) 100%
                       );
                     "
                   ></div>
                   <div
-                    class="absolute inset-0 flex items-center justify-center gap-3 text-white px-4 text-center"
+                    class="absolute inset-0 flex items-end p-5 text-white"
                   >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      stroke-width="2.2"
-                      class="flex-shrink-0"
-                    >
-                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                      <circle cx="9" cy="7" r="4" />
-                      <path
-                        d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"
-                      />
-                    </svg>
                     <span
-                      class="font-bold text-[0.95rem] md:text-[1.05rem] tracking-tight drop-shadow-md leading-tight"
-                      >Residencia +55 · Sur de Florida</span
+                      class="font-bold text-[1.05rem] md:text-[1.15rem] tracking-tight drop-shadow-md leading-[1.2]"
+                      >Más clientes,<br />sin descuidar<br />la marca.</span
                     >
-                  </div>
-                  <div
-                    class="absolute bottom-3 left-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    Historia
-                  </div>
-                  <div
-                    class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    2026
                   </div>
                 </div>
                 <div class="px-5 py-5" style="background: #fff">
+                  <div class="proj-card-cat">Comunidad / Florida 55+</div>
+                  <span class="proj-card-pill">41 leads/mes</span>
                   <h3
-                    class="heading mb-2 group-hover:underline underline-offset-4 decoration-1"
+                    class="heading mt-4 mb-2 group-hover:underline underline-offset-4 decoration-1"
                   >
                     Cómo una comunidad en Florida consiguió clientes nuevos sin
                     descuidar su marca
@@ -1599,7 +1567,7 @@
               </a>
             </div>
 
-            <!-- Card 4: desarrollo Florida -->
+            <!-- Card 4: Real Estate / Performance -->
             <div class="card-image" style="border-style: none">
               <a
                 href="caso-inmobiliaria-florida.html"
@@ -1616,55 +1584,25 @@
                     style="
                       background: linear-gradient(
                         to bottom,
-                        rgba(0, 0, 0, 0.08) 0%,
-                        rgba(0, 0, 0, 0.36) 100%
+                        rgba(0, 0, 0, 0.18) 0%,
+                        rgba(0, 0, 0, 0.5) 100%
                       );
                     "
                   ></div>
                   <div
-                    class="absolute inset-0 flex items-center justify-center gap-3 text-white px-4 text-center"
+                    class="absolute inset-0 flex items-end p-5 text-white"
                   >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="white"
-                      stroke-width="2.2"
-                      class="flex-shrink-0"
-                    >
-                      <path
-                        d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
-                      />
-                      <polyline points="9 22 9 12 15 12 15 22" />
-                    </svg>
                     <span
-                      class="font-bold text-[1rem] md:text-[1.1rem] tracking-tight drop-shadow-md leading-tight"
-                      >Real estate · Florida</span
+                      class="font-bold text-[1.05rem] md:text-[1.15rem] tracking-tight drop-shadow-md leading-[1.2]"
+                      >De gastar<br />a ciegas a<br />crecer con<br />dirección.</span
                     >
-                  </div>
-                  <div
-                    class="absolute bottom-3 left-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    Historia
-                  </div>
-                  <div
-                    class="absolute bottom-3 right-3 text-[0.78rem] font-medium text-white px-3 py-1 rounded-full"
-                    style="
-                      background: rgba(20, 20, 20, 0.55);
-                      backdrop-filter: blur(8px);
-                    "
-                  >
-                    2026
                   </div>
                 </div>
                 <div class="px-5 py-5" style="background: #fff">
+                  <div class="proj-card-cat">Real Estate / Performance</div>
+                  <span class="proj-card-pill">750+ leads en 6 meses</span>
                   <h3
-                    class="heading mb-2 group-hover:underline underline-offset-4 decoration-1"
+                    class="heading mt-4 mb-2 group-hover:underline underline-offset-4 decoration-1"
                   >
                     Cómo un desarrollo en Florida dejó de invertir a ciegas y
                     empezó a saber exactamente qué le funciona
